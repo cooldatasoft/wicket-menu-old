@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ResourceReference;
-import org.apache.wicket.behavior.HeaderContributor;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -25,20 +24,35 @@ public class ChromeMenu extends Panel implements IHeaderContributor{
 
 	private int numberOfMenu;
 
-//	<link rel="stylesheet" type="text/css" href="chrome/css/chromestyle.css" />
-//	<script type="text/javascript" src="chrome/js/chrome.js"></script>
+	private ResourceReference SHORTCUTS_JAVASCRIPT;
+	private ResourceReference SHORTCUTS_CSS;
+	public enum CSS{THEME1,THEME2,THEME3,THEME4};
 	/**
 	 * http://www.dynamicdrive.com/dynamicindex1/chrome/index.htm
 	 * 
 	 * First element of each list is assumed to be the top menu
+	 * Use ChromeMenu.CSS.THEME1-4 for different css themes
+	 * 
 	 * @param id
 	 * @param menuListOfLinkList
 	 */
-	public ChromeMenu(String id, final List<List<LinkInfo>> menuListOfLinkList) {
+	public ChromeMenu(String id, final List<List<LinkInfo>> menuListOfLinkList, CSS cssTheme ) {
 		super(id);
-
-//		add(HeaderContributor.forJavaScript("chrome/js/chrome.js"));
-//		add(HeaderContributor.forCss("chrome/css/chromestyle.css"));
+		
+		
+		SHORTCUTS_JAVASCRIPT = new CompressedResourceReference(ChromeMenu.class,"js/chrome.js");
+		
+		if(cssTheme == CSS.THEME1){
+			SHORTCUTS_CSS = new CompressedResourceReference(ChromeMenu.class,"css/chromestyle1.css");
+		}else if(cssTheme == CSS.THEME2){
+			SHORTCUTS_CSS = new CompressedResourceReference(ChromeMenu.class,"css/chromestyle2.css");
+		}else if(cssTheme == CSS.THEME3){
+			SHORTCUTS_CSS = new CompressedResourceReference(ChromeMenu.class,"css/chromestyle3.css");
+		}else if(cssTheme == CSS.THEME4){
+			SHORTCUTS_CSS = new CompressedResourceReference(ChromeMenu.class,"css/chromestyle4.css");
+		}
+		
+		
 		
 		ListView menuView = new ListView("menuLinkList", menuListOfLinkList) {
 			int itemCount = 0;
@@ -123,15 +137,12 @@ public class ChromeMenu extends Panel implements IHeaderContributor{
 		this.numberOfMenu = numberOfMenu;
 	}
 
-	private ResourceReference SHORTCUTS_JAVASCRIPT;
-	private ResourceReference SHORTCUTS_CSS;
+	
 	@Override
 	public void renderHead(IHeaderResponse response) {
-		SHORTCUTS_JAVASCRIPT = new CompressedResourceReference(ChromeMenu.class,"js/chrome.js");
-		SHORTCUTS_CSS = new CompressedResourceReference(ChromeMenu.class,"css/chromestyle.css");
         response.renderJavascriptReference(SHORTCUTS_JAVASCRIPT);
         response.renderCSSReference(SHORTCUTS_CSS);
-        
-		
 	}
+	
+	
 }
