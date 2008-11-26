@@ -5,7 +5,11 @@ import java.io.Serializable;
 import org.apache.wicket.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.IModel;
-
+/**
+ * 
+ * @author fatih mehmet ucar
+ *
+ */
 public class LinkInfo implements Serializable {
 
 	/**
