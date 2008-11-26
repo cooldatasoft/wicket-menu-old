@@ -39,7 +39,6 @@ public class ChromeMenu extends Panel implements IHeaderContributor{
 	public ChromeMenu(String id, final List<List<LinkInfo>> menuListOfLinkList, CSS cssTheme ) {
 		super(id);
 		
-		
 		SHORTCUTS_JAVASCRIPT = new CompressedResourceReference(ChromeMenu.class,"js/chrome.js");
 		
 		if(cssTheme == CSS.THEME1){
@@ -51,8 +50,6 @@ public class ChromeMenu extends Panel implements IHeaderContributor{
 		}else if(cssTheme == CSS.THEME4){
 			SHORTCUTS_CSS = new CompressedResourceReference(ChromeMenu.class,"css/chromestyle4.css");
 		}
-		
-		
 		
 		ListView menuView = new ListView("menuLinkList", menuListOfLinkList) {
 			int itemCount = 0;
@@ -136,13 +133,10 @@ public class ChromeMenu extends Panel implements IHeaderContributor{
 	public void setNumberOfMenu(int numberOfMenu) {
 		this.numberOfMenu = numberOfMenu;
 	}
-
 	
 	@Override
 	public void renderHead(IHeaderResponse response) {
         response.renderJavascriptReference(SHORTCUTS_JAVASCRIPT);
         response.renderCSSReference(SHORTCUTS_CSS);
 	}
-	
-	
 }
