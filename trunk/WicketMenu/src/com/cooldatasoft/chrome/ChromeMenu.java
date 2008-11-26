@@ -1,5 +1,6 @@
 package com.cooldatasoft.chrome;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.wicket.AttributeModifier;
@@ -17,6 +18,8 @@ public class ChromeMenu extends Panel {
 
 
 	/**
+	 * http://www.dynamicdrive.com/dynamicindex1/chrome/index.htm
+	 * 
 	 * First element of each list is assumed to be the top menu
 	 * @param id
 	 * @param menuListOfLinkList
@@ -28,7 +31,7 @@ public class ChromeMenu extends Panel {
 			int itemCount = 0;
 
 			public void populateItem(final ListItem item) {
-
+				
 				final LinkInfo linkInfo = ((List<LinkInfo>) item.getModelObject()).get(0);
 				Link link = new Link("menuLink") {
 					@Override
@@ -53,15 +56,21 @@ public class ChromeMenu extends Panel {
 		add(menuView);
 
 		ListView submenuListView = new ListView("submenuList", menuListOfLinkList) {
-			int itemCount = 1;
-
+			int itemCount = 0;
+			
 			public void populateItem(final ListItem item) {
-
+				List<LinkInfo> linkInfoList = (List<LinkInfo>) item.getModelObject();
+				List<LinkInfo> topMenuRemovedList = new ArrayList<LinkInfo>();
+				topMenuRemovedList.addAll(linkInfoList);
+				topMenuRemovedList.remove(0);
+					
+				
 				WebMarkupContainer submenuDiv = new WebMarkupContainer("submenuDiv");
 				submenuDiv.add(new AttributeModifier("id", true, new Model("dropmenu" + itemCount)));
-
-				ListView submenuItem = new ListView("submenuItem",menuListOfLinkList.get(itemCount)) {
+				
+				ListView submenuItem = new ListView("submenuItem",topMenuRemovedList) {
 					public void populateItem(final ListItem item) {
+						
 						final LinkInfo linkInfo = (LinkInfo) item.getModelObject();
 						
 						Link link = new Link("menuLink") {
@@ -83,6 +92,7 @@ public class ChromeMenu extends Panel {
 				itemCount++;
 				item.add(submenuDiv);
 				item.setRenderBodyOnly(true);
+				
 			}
 		};
 		submenuListView.setReuseItems(true);

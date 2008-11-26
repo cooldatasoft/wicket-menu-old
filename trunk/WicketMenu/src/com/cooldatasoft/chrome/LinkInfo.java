@@ -13,28 +13,28 @@ public class LinkInfo implements Serializable {
 	 */
 	private static final long serialVersionUID = 3228761071903265131L;
 	
-	private WebPage responsePage = null;
+	private Class<? extends WebPage> responsePage = null;
 	private String linkText = null;
 	private IModel model = null;
 	private PageParameters param = null;
 
-	public LinkInfo(WebPage linkPageClass, String linkText) {
+	public LinkInfo(Class<? extends WebPage> linkPageClass, String linkText) {
 		setResponsePage(linkPageClass);
 		setLinkText(linkText);
 	}
 
-	public LinkInfo(WebPage linkPageClass, String linkText, PageParameters param) {
+	public LinkInfo(Class<? extends WebPage> linkPageClass, String linkText, PageParameters param) {
 		setResponsePage(linkPageClass);
 		setLinkText(linkText);
 		setParam(param);
 	}
 
-	public LinkInfo(WebPage linkPageClass, IModel linkTextModel) {
+	public LinkInfo(Class<? extends WebPage> linkPageClass, IModel linkTextModel) {
 		setResponsePage(linkPageClass);
 		setLinkText(linkTextModel.getObject().toString());
 	}
 
-	public LinkInfo(WebPage linkPageClass, IModel linkTextModel,
+	public LinkInfo(Class<? extends WebPage> linkPageClass, IModel linkTextModel,
 			IModel objectModel) {
 		setResponsePage(linkPageClass);
 		setLinkText(linkTextModel.getObject().toString());
@@ -65,11 +65,11 @@ public class LinkInfo implements Serializable {
 		this.param = param;
 	}
 
-	public WebPage getResponsePage() {
+	public Class<? extends WebPage> getResponsePage() {
 		return responsePage;
 	}
 
-	public void setResponsePage(WebPage responsePage) {
+	public void setResponsePage(Class<? extends WebPage> responsePage) {
 		this.responsePage = responsePage;
 	}
 }
