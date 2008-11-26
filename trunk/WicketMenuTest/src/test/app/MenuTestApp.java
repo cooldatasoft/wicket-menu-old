@@ -3,7 +3,7 @@ package test.app;
  */
 import org.apache.wicket.protocol.http.WebApplication;
 
-import test.page.TestMenu;
+import test.chrome.TestMenu;
 /**
  * 
  * @author fatih mehmet ucar

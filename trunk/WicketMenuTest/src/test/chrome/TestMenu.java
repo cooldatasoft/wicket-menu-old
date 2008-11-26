@@ -1,4 +1,4 @@
-package test.page;
+package test.chrome;
 
 import java.util.ArrayList;
 import java.util.List;
