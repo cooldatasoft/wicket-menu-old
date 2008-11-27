@@ -7,6 +7,7 @@ import org.apache.wicket.markup.html.WebPage;
 
 import com.cooldatasoft.chrome.ChromeMenu;
 import com.cooldatasoft.chrome.LinkInfo;
+import com.cooldatasoft.slidein.SlideInMenu1;
 /**
  * 
  * @author fatih mehmet ucar
@@ -54,7 +55,10 @@ public class TestMenu extends WebPage {
 		menuList.add(list2);
 		menuList.add(list3);
 		
-		ChromeMenu ch = new ChromeMenu("menuPanel",menuList,ChromeMenu.CSS.THEME2);
-		add(ch);
+//		ChromeMenu ch = new ChromeMenu("menuPanel",menuList,ChromeMenu.CSS.THEME2);
+//		add(ch);
+		
+		SlideInMenu1 slideInMenu1 = new SlideInMenu1("slideInMenu1",list1);
+		add(slideInMenu1);
 	}
 }

@@ -18,4 +18,12 @@ public class MenuTestApp extends WebApplication {
 		return TestMenu.class;
 	}
 
+	@Override
+	protected void init() {
+		super.init();
+		getMarkupSettings().setStripWicketTags(true);
+	}
+	
+	
+
 }
