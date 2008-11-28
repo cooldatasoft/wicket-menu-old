@@ -40,12 +40,12 @@ public class SlideInMenu1 extends Panel implements IHeaderContributor{
         
         response.getResponse().write(JavascriptUtils.SCRIPT_OPEN_TAG);
         int count=0;
-        response.getResponse().write("var sitems=new Array();");
+        response.getResponse().write("var sitems = new Array();\n");
         
         for(LinkInfo linkInfo:menuList){
-        	response.getResponse().write("sitems["+(count++)+"]=[\""+linkInfo.getLinkText()+"\"," +
-        			"\""+count+"\"]\n");
+        	response.getResponse().write("sitems["+(count++)+"]=[\""+linkInfo.getLinkText()+"\"," +	"\""+count+"\"];\n");
         }
+        
         response.getResponse().write(JavascriptUtils.SCRIPT_CLOSE_TAG);
         
         response.renderJavascriptReference(SHORTCUTS_JAVASCRIPT);
