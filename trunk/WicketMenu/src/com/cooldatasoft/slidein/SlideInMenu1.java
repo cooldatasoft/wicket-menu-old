@@ -3,6 +3,7 @@ package com.cooldatasoft.slidein;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.wicket.RequestCycle;
 import org.apache.wicket.ResourceReference;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
@@ -36,14 +37,13 @@ public class SlideInMenu1 extends Panel implements IHeaderContributor{
 	}
 	@Override
 	public void renderHead(IHeaderResponse response) {
-			
-        
-        response.getResponse().write(JavascriptUtils.SCRIPT_OPEN_TAG);
+
+		response.getResponse().write(JavascriptUtils.SCRIPT_OPEN_TAG);
         int count=0;
         response.getResponse().write("var sitems = new Array();\n");
         
-        for(LinkInfo linkInfo:menuList){
-        	response.getResponse().write("sitems["+(count++)+"]=[\""+linkInfo.getLinkText()+"\"," +	"\""+count+"\"];\n");
+        for(final LinkInfo linkInfo:menuList){
+        	response.getResponse().write("sitems["+(count++)+"]=[\""+linkInfo.getLinkText()+"\"," +	"\""+RequestCycle.get().urlFor(linkInfo.getResponsePage(),null)+"\"];\n");
         }
         
         response.getResponse().write(JavascriptUtils.SCRIPT_CLOSE_TAG);
