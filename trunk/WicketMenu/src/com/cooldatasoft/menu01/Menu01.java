@@ -1,5 +1,7 @@
 package com.cooldatasoft.menu01;
 
+import java.util.List;
+
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ResourceReference;
 import org.apache.wicket.markup.html.IHeaderContributor;
@@ -7,8 +9,9 @@ import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.image.ContextImage;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.html.resources.CompressedResourceReference;
-import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+
+import com.cooldatasoft.common.MenuItem;
 
 public class Menu01 extends Panel implements IHeaderContributor {
 	
@@ -16,8 +19,8 @@ public class Menu01 extends Panel implements IHeaderContributor {
 	ContextImage bgLeft = new ContextImage("bgLeft",new Model( "resources/com.cooldatasoft.menu01.Menu01/images/nav-bg-l.jpg"));
 	ContextImage bgRight = new ContextImage("bgRight",new Model( "resources/com.cooldatasoft.menu01.Menu01/images/nav-bg-r.jpg"));
 	
-	public Menu01(String id, IModel model) {
-		super(id, model);
+	public Menu01(String id, List<MenuItem> menuItemList) {
+		super(id);
 		
 		bgLeft.add(new AttributeModifier("class",new Model("float-left")));
 		bgRight.add(new AttributeModifier("class",new Model("float-right")));
