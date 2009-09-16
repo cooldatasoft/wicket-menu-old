@@ -27,6 +27,32 @@ public class Menu01 extends Panel implements IHeaderContributor {
 		   
 		add(bgLeft);
 		add(bgRight);
+		
+//		ListView menuView = new ListView("menuLinkList", menuListOfLinkList) {
+//			int itemCount = 0;
+//
+//			public void populateItem(final ListItem item) {
+//				
+//				final LinkInfo linkInfo = ((List<LinkInfo>) item.getModelObject()).get(0);
+//				Link link = new Link("menuLink") {
+//					@Override
+//					public void onClick() {
+//						if (linkInfo.getResponsePage() != null) {
+//							setResponsePage(linkInfo.getResponsePage());
+//						}
+//					}
+//				};
+//
+//				// Adding submenu to menu item
+//				link.add(new AttributeModifier("rel", true, new Model("dropmenu" + itemCount)));
+//				setNumberOfMenu(itemCount++);
+//
+//				Label linkText = new Label("linkText", linkInfo.getLinkText());
+//				linkText.setRenderBodyOnly(true);
+//				link.add(linkText);
+//				item.add(link);
+//			}
+//		};
 	}
 
 	@Override
