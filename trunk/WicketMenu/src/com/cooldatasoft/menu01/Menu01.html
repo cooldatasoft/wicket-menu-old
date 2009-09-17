@@ -8,125 +8,23 @@
 
 <body>
 	<wicket:panel>
-	  <div class="nav-container-outer">
-	  	<img wicket:id="bgLeft" class="float-left"/>
-	  	<img wicket:id="bgRight" class="float-right" />
-	  	
-	  	
-	  	<!-- 
-	  	<ul>
-			<li wicket:id="menuLinkList">
-	        	<a href="#" wicket:id="menuLink" ><span wicket:id="linkText">[LINK TEXT]</span></a>
-	        </li>
-		</ul>
-		
-		-->
-	  	
-	  	
-		<ul id="nav-container" class="nav-container" wicket:id="nav-container">
-			
-			
-			
-			
-			
-			
-			<li><a class="item-primary" href="#">HOME</a></li>
-		    <li><span class="divider divider-vert" ></span></li>
-		    
-		    <li>
-		    	<a class="item-primary" href="#">Products</a>
-				<ul style="width:150px;">
-			         <li><a href="#">SoftwarePlus</a></li>
-			         <li><a href="#">MagicDriver</a></li>
-			         <li><a href="#">GreatFX</a></li>
-			         <li><a href="#">SampleSoft</a></li>
-			         <li><a href="#">UnDoIt</a></li>
-			         <li><a href="#">100% CSS Menu</a></li>
-			         <li><a href="#;">With Cross-Browser</a></li>
-			         <li><a href="#;">Dropdowns</a></li>
-			         <li><a href="#;">Absolutely NO Javascript</a></li>
-			         <li><a href="#;">Being Used On</a></li>
-			         <li><a href="#;">These Menus</a></li>
-			         <li><span class="divider divider-horiz" ></span></li>
-			         <li><a href="#;">Example Of a Divider</a></li>
-			         <li><a href="#;">With No Title</a></li>
-			     </ul>
-		     </li>		   
-		     <li><span class="divider divider-vert" ></span></li>
-		     
-		     <li><a class="item-primary" href="#">Quality</a>
-		         <ul style="width:150px;">
-		         <li><a href="#">SoftwarePlus</a></li>
-		         <li><a href="#">MagicDriver</a></li>
-		         <li><a href="#">GreatFX</a></li>
-		         <li><a href="#">SampleSoft</a></li>
-		         <li><a href="#">UnDoIt</a></li>
-		         <li><a href="#">100% CSS Menu</a></li>
-		         <li><a href="#;">With Cross-Browser</a></li>
-		         <li><a href="#;">Dropdowns</a></li>
-		         <li><a href="#;">Absolutely NO Javascript</a></li>
-		         <li><a href="#;">Being Used On</a></li>
-		         <li><a href="#;">These Menus</a></li>
-		         <li><span class="divider divider-horiz" ></span></li>
-		         <li><a href="#;">Example Of a Divider</a></li>
-		         <li><a href="#;">With No Title</a></li>
-		         </ul>
-		      </li>
-		      <li><span class="divider divider-vert" ></span></li>
-		   
-		      <li><a class="item-primary" href="#">Services</a>
-		         <ul style="width:150px;">
-		         <li><span class="item-secondary-title" >Title For Links</span></li>
-		         <li><a href="#">These Links Still Appear</a></li>
-		         <li><a href="#">Just Like The Others</a></li>
-		         <li><a href="#">Even When Under A Title</a></li>
-		         <li><span class="divider divider-horiz" ></span></li>
-		         <li><span class="item-secondary-title" >Title After Divider</span></li>
-		         <li><a href="#">Once Again...</a></li>
-		         <li><a href="#">These Links Still Appear</a></li>
-		         <li><a href="#">Just Like The Others</a></li>
-		         <li><a href="#">Even When Under A Title</a></li>
-		         </ul>
-		      </li>		   
-		      <li><span class="divider divider-vert" ></span></li>
-		      
-		      <li><a class="item-primary" href="#;">Very Long Item</a>
-		         <ul style="width:150px;">
-		         <li><span class="item-secondary-title" >Title For Links</span></li>
-		         <li><a href="#">These Links Still Appear</a></li>
-		         <li><a href="#">Just Like The Others</a></li>
-		         <li><a href="#">Even When Under A Title</a></li>
-		         <li><span class="divider divider-horiz" ></span></li>
-		         <li><span class="item-secondary-title" >Title After Divider</span></li>
-		         <li><a href="#">Once Again...</a></li>
-		         <li><a href="#">These Links Still Appear</a></li>
-		         <li><a href="#">Just Like The Others</a></li>
-		         <li><a href="#">Even When Under A Title</a></li>
-		         </ul>
-		       </li>
-		       <li><span class="divider divider-vert" ></span></li>
-		       
-		       <li><a class="item-primary" href="#;">Fully Flexible</a>
-		         <ul style="width:150px;">
-		         <li><span class="item-secondary-title" >Title For Links</span></li>
-		         <li><a href="#">These Links Still Appear</a></li>
-		         <li><a href="#">Just Like The Others</a></li>
-		         <li><a href="#">Even When Under A Title</a></li>
-		         
-		         <li><span class="divider divider-horiz" ></span></li>
-		         
-		         <li><span class="item-secondary-title" >Title After Divider</span></li>
-		         <li><a href="#">Once Again...</a></li>
-		         <li><a href="#">These Links Still Appear</a></li>
-		         <li><a href="#">Just Like The Others</a></li>
-		         <li><a href="#">Even When Under A Title</a></li>
-		         </ul>
+		<div class="nav-container-outer">
+		  	<img wicket:id="bgLeft" class="float-left"/>
+		  	<img wicket:id="bgRight" class="float-right" />
+		  	<ul id="nav-container" class="nav-container" >
+				<li wicket:id="menuItem">
+		        	<a href="#" wicket:id="menuLink" ><span wicket:id="linkText">[PRIMARY MENU LINK TEXT]</span></a>
+		        	<span wicket:id="menuSeperator">[NOTHING -JUST MENU SEPERATOR]</span>
+		        	<ul style="width:150px;" wicket:id="subMenuList">
+		        		<li wicket:id="subMenuItem">
+			        		<a href="#" wicket:id="subMenuLink" ><span wicket:id="subMenuLinkText">[SUBMENU LINK TEXT]</span></a>
+		        			<span wicket:id="subMenuSeperatorOrSecondaryTitle">[Seperator or submenu title]</span>
+		        		</li>
+				     </ul>
 		        </li>
-		 
-				<!-- Add empty menu to the end -->	 
-			   <li class="clear">&nbsp;</li>
-		 </ul>
-		   
+		        <!-- Add empty menu to the end -->	 
+				<li class="clear">&nbsp;</li>
+			 </ul>		   
 		</div>
 	</wicket:panel>
 </body>
