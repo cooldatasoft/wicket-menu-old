@@ -96,7 +96,7 @@ Html Markup :
 	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.3-strict.dtd"
 	xml:lang="en" lang="en">
 	<head>
-		<title>WicketMenu-0.1a Demo</title>
+		<title>WicketMenu-0.0.1 Demo</title>
 	</head>
 	<body>
 		<div wicket:id="sunriseGlossMenu"></div>
