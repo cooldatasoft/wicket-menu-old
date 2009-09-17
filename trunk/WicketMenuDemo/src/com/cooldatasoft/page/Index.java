@@ -1,15 +1,16 @@
 package com.cooldatasoft.page;
 
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.Link;
 
-public class Index extends WebPage {
+import com.cooldatasoft.app.BasePage;
+
+public class Index extends BasePage {
 
 	public Index() {
 		Link menu01Demo = new Link("menu01Demo"){
 			@Override
 			public void onClick() {
-				setResponsePage(Menu01Demo.class);
+				setResponsePage(SunriseGlossDropDownMenuDemo.class);
 			}
 		};
 		

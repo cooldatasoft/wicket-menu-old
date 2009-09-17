@@ -1,5 +1,11 @@
-package com.cooldatasoft.menu01;
+package com.cooldatasoft.css.horizontal.dropdown.SunriseGloss;
 
+/**
+ * http://www.cssmenumaker.com/builder/menu_info.php?menu=003
+ * 
+ * Drop Down Menus : Sunrise Gloss
+ * 
+ */
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,15 +25,15 @@ import org.apache.wicket.model.Model;
 
 import com.cooldatasoft.common.MenuItem;
 
-public class Menu01 extends Panel implements IHeaderContributor {
+public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributor {
 	
-	ResourceReference CSS_PATH = new CompressedResourceReference(Menu01.class,"css/style.css");
-	ContextImage bgLeft = new ContextImage("bgLeft",new Model( "resources/com.cooldatasoft.menu01.Menu01/images/nav-bg-l.jpg"));
-	ContextImage bgRight = new ContextImage("bgRight",new Model( "resources/com.cooldatasoft.menu01.Menu01/images/nav-bg-r.jpg"));
+	ResourceReference CSS_PATH = new CompressedResourceReference(SunriseGlossDropDownMenu.class,"css/SunriseGloss.css");
+	ContextImage bgLeft = new ContextImage("bgLeft",new Model( "resources/com.cooldatasoft.css.horizontal.dropdown.SunriseGloss/images/nav-bg-l.jpg"));
+	ContextImage bgRight = new ContextImage("bgRight",new Model( "resources/com.cooldatasoft.css.horizontal.dropdown.SunriseGloss/images/nav-bg-r.jpg"));
 	
 	
 	
-	public Menu01(String id, List<MenuItem> menuItemList) {
+	public SunriseGlossDropDownMenu(String id, List<MenuItem> menuItemList) {
 		super(id);
 		
 		bgLeft.add(new AttributeModifier("class",new Model("float-left")));
