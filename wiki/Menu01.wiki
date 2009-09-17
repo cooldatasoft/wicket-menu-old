@@ -1,21 +1,31 @@
-#summary SunriseGloss DropDown Css Menu
+#summary com.cooldatasoft.css.horizontal.dropdown.SunriseGloss.SunriseGlossDropDownMenu
 #labels Phase-Implementation,Phase-Deploy
 
 = Introduction =
 
-For a demo of the menu follow the link below
+Name: Sunrise Gloss
+
+Class Name: SunriseGlossDropDownMenu
+
+Pakcage : com.cooldatasoft.css.horizontal.dropdown.SunriseGloss
+
+Type: Dropdown Css Menu
+
+
+
+For a demo of the menu follow the link : 
 http://www.cssmenumaker.com/builder/menu_info.php?menu=003
 
-
-= Details =
-
+= Screenshot =
 [http://img142.imageshack.us/img142/1036/menu01z.jpg]
 
-How to use it:
+= How to use it: =
 
   * Download the demo war 
   * Deploy it to your AS (Easiest one is tomcat)
   * See source for example usage.
+
+or see the example below:
 
 
 Java Code:
