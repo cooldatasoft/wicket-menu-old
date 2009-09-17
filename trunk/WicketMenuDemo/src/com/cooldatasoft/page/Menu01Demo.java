@@ -19,16 +19,14 @@ public class Menu01Demo extends WebPage {
 		MenuItem primaryMenu3 = new MenuItem("Menu 3",new Index());
 		MenuItem primaryMenu4 = new MenuItem("MenU 4",new Index());
 		MenuItem primaryMenu5 = new MenuItem("menu 5",new Index());
-		
-		
-		MenuItem subMenu1 = new MenuItem("submenu 1",new Index());
-		MenuItem subMenu2 = new MenuItem("subMENU 2",new Index());
-		MenuItem subMenu3 = new MenuItem("SUBMENU 3",new Index());
-		MenuItem subMenu4 = new MenuItem("Submenu 4",new Index());
-		MenuItem subMenu5 = new MenuItem("SuBmEnU 5",new Index());
-		
-		MenuItem subMenuTitle1 = new MenuItem("Submenu Title 1");
-		MenuItem subMenuTitle2 = new MenuItem("Submenu Title 2");
+			MenuItem subMenu1 = new MenuItem("submenu 1",new Index());
+			MenuItem subMenu2 = new MenuItem("subMENU 2",new Index());
+			MenuItem subMenu3 = new MenuItem("SUBMENU 3",new Index());
+			MenuItem subMenu4 = new MenuItem("Submenu 4",new Index());
+			MenuItem subMenu5 = new MenuItem("SuBmEnU 5",new Index());
+			
+			MenuItem subMenuTitle1 = new MenuItem("Submenu Title 1");
+			MenuItem subMenuTitle2 = new MenuItem("Submenu Title 2");
 		
 		
 		primaryMenu1.getSubMenuItemList().add(subMenu1);
