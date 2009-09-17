@@ -8,8 +8,11 @@ http://www.cssmenumaker.com/builder/menu_info.php?menu=003
 
 = Details =
 
+[http://img142.imageshack.us/img142/1036/menu01z.jpg]
+
 How to use it:
 
-  * Download the demo war file from the downloads tab and deploy it to your AS.
-  * s 
+  * Download the demo war 
+  * Deploy it to your AS (Easiest one is tomcat)
+  * See source for example usage.
   
