@@ -47,6 +47,9 @@ public class MenuItem {
 	public <T extends WebPage> void setDestinationPage(T destinationPage) {
 		this.destinationPage = destinationPage;
 	}
+	public void addSubmenu(MenuItem subMenuItem){
+		getSubMenuItemList().add(subMenuItem);
+	}
 	public List<MenuItem> getSubMenuItemList() {
 		return subMenuItemList;
 	}
