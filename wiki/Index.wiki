@@ -1,5 +1,5 @@
-#summary Index of all available menu's
 #labels Featured
+
 
 = List of available css Menu's =
 [SunriseGlossDropDownMenu]
