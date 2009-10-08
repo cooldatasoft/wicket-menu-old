@@ -3,174 +3,109 @@ package com.cooldatasoft.common;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.markup.html.link.Link;
-/**
- * Defines a Menu Item
- * @author fmucar
- * @version
- */
+
 public class MenuItem {
 
-	private static final MenuItem SEPERATOR = new MenuItem(true);
-	private boolean seperator = false;
-	private boolean title = false;
+	private int destinationType;
 	private String menuText;
+	private Class<? extends WebPage> responsePageClass;
 	private WebPage responsePage;
-	private Class<? extends WebPage> responseClass;
-	private AjaxLink ajaxLink;
-	private String externalLinkHref;
-	private Link link;
+	private String externalLink;
+	
 	private List<MenuItem> subMenuItemList;
+	private boolean seperator = false;
+	private boolean submenuTitle = false;
 	
 	
-	private DestinationType destinationType;
-	
-	public void addSubmenu(MenuItem subMenuItem){
-		getSubMenuItemList().add(subMenuItem);
-	}
-	public List<MenuItem> getSubMenuItemList() {
-		if(subMenuItemList == null){
-			subMenuItemList = new ArrayList<MenuItem>();
-		}
-		return subMenuItemList;
-	}
-	private MenuItem setSubMenuItemList(List<MenuItem> subMenuItemList) {
-		this.subMenuItemList = subMenuItemList;
-		return this;
-	}	
-	//constructors
-	private MenuItem(boolean seperator){
+	public MenuItem(boolean seperator){
 		setSeperator(true);
 		setDestinationType(DestinationType.NONE);
 	}
-	private MenuItem(String menuText){
-		setMenuText(menuText);
+	public MenuItem(String submenuTitle){
+		setSubmenuTitleTitle(true);
+		setMenuText(submenuTitle);
 		setDestinationType(DestinationType.NONE);
 	}
-	private MenuItem(String menuText,String externalLinkHref){
+	public <T extends WebPage>MenuItem(String menuText, T destinationPage) {
 		setMenuText(menuText);
-		setExternalLinkHref(externalLinkHref);
-		setDestinationType(DestinationType.EXTERNAL_LINK);
-	}
-	private MenuItem(String menuText,Class<? extends WebPage> responseClass){
-		setMenuText(menuText);
-		setResponseClass(responseClass);
-		setDestinationType(DestinationType.WEB_PAGE_CLASS);
-	}
-	private <T extends WebPage>MenuItem(String menuText,T responsePage){
-		setMenuText(menuText);
-		setResponseClass(responseClass);
+		setResponsePage(destinationPage);
+		setSubMenuItemList(new ArrayList<MenuItem>());
 		setDestinationType(DestinationType.WEB_PAGE_INSTANCE);
 	}
-	private <T extends Link>MenuItem(String menuText,T link){
+	public MenuItem(String menuText, Class<? extends WebPage> destinationPageClass) {
 		setMenuText(menuText);
-		setLink(link);
-		setDestinationType(DestinationType.LINK);
+		setResponsePageClass(destinationPageClass);
+		setSubMenuItemList(new ArrayList<MenuItem>());
+		setDestinationType(DestinationType.WEB_PAGE_INSTANCE);
 	}
-	private <T extends AjaxLink>MenuItem(String menuText,T ajaxLink){
+	
+	public MenuItem(String menuText, Class<? extends WebPage> destinationWebPage,List<MenuItem> subMenuItemList) throws InstantiationException, IllegalAccessException {
+		this(menuText,destinationWebPage.newInstance(),subMenuItemList);
+		setDestinationType(DestinationType.WEB_PAGE_CLASS);
+	}
+	public <T extends WebPage>MenuItem(String menuText, T destinationPage,List<MenuItem> subMenuItemList) {
 		setMenuText(menuText);
-		setAjaxLink(ajaxLink);
-		setDestinationType(DestinationType.AJAX_LINK);
+		setResponsePage(destinationPage);
+		setSubMenuItemList(subMenuItemList);
+		setDestinationType(DestinationType.WEB_PAGE_INSTANCE);
 	}
-	//GetInstance Methods
+	
+	
 	public static MenuItem getMenuSeperator(){
-		return MenuItem.SEPERATOR;
-	}	
-	public static MenuItem getSubMenuTitleInstance(String menuText){
-		return MenuItem.getInstance(menuText).setTitle(true);
+		return new MenuItem(true);
 	}
-	public static MenuItem getInstance(String menuText){
-		return new MenuItem(menuText);
-	}
-	public static MenuItem getInstance(String menuText,String externalLinkHref){
-		return new MenuItem(menuText,externalLinkHref);
-	}
-	public static MenuItem getInstance(String menuText,Class<? extends WebPage> responseClass){
-		return new MenuItem(menuText,responseClass);
-	}
-	public static <T extends WebPage> MenuItem getInstance(String menuText,T responsePage){
-		return new MenuItem(menuText,responsePage);
-	}
-	public static <T extends Link> MenuItem getInstance(String menuText,T link){
-		return new MenuItem(menuText,link);
-	}
-	public static <T extends AjaxLink> MenuItem getInstance(String menuText,T ajaxLink){
-		return new MenuItem(menuText,ajaxLink);
-	}
-	public static MenuItem getInstance(String menuText,List<MenuItem> subMenuItemList){
-		return new MenuItem(menuText).setSubMenuItemList(subMenuItemList);
-	}
-	public static MenuItem getInstance(String menuText,String externalLinkHref,List<MenuItem> subMenuItemList){
-		return new MenuItem(menuText,externalLinkHref).setSubMenuItemList(subMenuItemList);
-	}
-	public static MenuItem getInstance(String menuText,Class<? extends WebPage> responseClass,List<MenuItem> subMenuItemList){
-		return new MenuItem(menuText,responseClass).setSubMenuItemList(subMenuItemList);
-	}
-	public static <T extends WebPage> MenuItem getInstance(String menuText,T responsePage,List<MenuItem> subMenuItemList){
-		return new MenuItem(menuText,responsePage).setSubMenuItemList(subMenuItemList);
-	}
-	public static <T extends Link> MenuItem getInstance(String menuText,T link,List<MenuItem> subMenuItemList){
-		return new MenuItem(menuText,link).setSubMenuItemList(subMenuItemList);
-	}
-	public static <T extends AjaxLink> MenuItem getInstance(String menuText,T ajaxLink,List<MenuItem> subMenuItemList){
-		return new MenuItem(menuText,ajaxLink).setSubMenuItemList(subMenuItemList);
-	}
-	//getter/setter methods
+	
 	public String getMenuText() {
 		return menuText;
 	}
-	public void setMenuText(String menuText) {
-		this.menuText = menuText;
-	}
-	public boolean isSeperator() {
-		return seperator;
-	}
-	public boolean isTitle() {
-		return title;
-	}
-	private MenuItem setTitle(boolean title){
-		this.title = title;
-		return this;
-	}
-	private void setSeperator(boolean seperator){
-		this.seperator = seperator;
+	public void setMenuText(String text) {
+		this.menuText = text;
 	}
 	public WebPage getResponsePage() {
 		return responsePage;
 	}
-	public void setResponsePage(WebPage responsePage) {
-		this.responsePage = responsePage;
+	public <T extends WebPage> void setResponsePage(T destinationPage) {
+		this.responsePage = destinationPage;
 	}
-	public Class<? extends WebPage> getResponseClass() {
-		return responseClass;
+	public void addSubmenu(MenuItem subMenuItem){
+		getSubMenuItemList().add(subMenuItem);
 	}
-	public void setResponseClass(Class<? extends WebPage> responseClass) {
-		this.responseClass = responseClass;
+	public List<MenuItem> getSubMenuItemList() {
+		return subMenuItemList;
 	}
-	public AjaxLink getAjaxLink() {
-		return ajaxLink;
+	public void setSubMenuItemList(List<MenuItem> subMenuItemList) {
+		this.subMenuItemList = subMenuItemList;
 	}
-	public void setAjaxLink(AjaxLink ajaxLink) {
-		this.ajaxLink = ajaxLink;
+	public boolean isSeperator() {
+		return seperator;
 	}
-	public String getExternalLinkHref() {
-		return externalLinkHref;
+	public void setSeperator(boolean seperator) {
+		this.seperator = seperator;
 	}
-	public void setExternalLinkHref(String externalLinkHref) {
-		this.externalLinkHref = externalLinkHref;
+	public boolean isSubmenuTitle() {
+		return submenuTitle;
 	}
-	public Link getLink() {
-		return link;
+	public void setSubmenuTitleTitle(boolean title) {
+		this.submenuTitle = title;
 	}
-	public void setLink(Link link) {
-		this.link = link;
-	}
-	public DestinationType getDestinationType() {
+	public int getDestinationType() {
 		return destinationType;
 	}
-	private void setDestinationType(DestinationType destinationType) {
+	public void setDestinationType(int destinationType) {
 		this.destinationType = destinationType;
-	}	
+	}
+	public Class<? extends WebPage> getResponsePageClass() {
+		return responsePageClass;
+	}
+	public void setResponsePageClass(
+			Class<? extends WebPage> destinationPageClass) {
+		this.responsePageClass = destinationPageClass;
+	}
+	public String getExternalLink() {
+		return externalLink;
+	}
+	public void setExternalLink(String externalLink) {
+		this.externalLink = externalLink;
+	}
 }

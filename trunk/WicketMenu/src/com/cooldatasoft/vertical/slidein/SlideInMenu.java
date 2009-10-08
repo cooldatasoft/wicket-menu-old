@@ -61,11 +61,12 @@ public class SlideInMenu extends Panel implements IHeaderContributor {
         response.getResponse().write("var sitems = new Array();\n");
         
         for(MenuItem menuItem:getMenuItemList()){
-        	if(menuItem.getDestinationType().equals(DestinationType.WEB_PAGE_CLASS)){
-        		response.getResponse().write("sitems["+(count++)+"]=[\""+menuItem.getMenuText()+"\"," +	"\""+RequestCycle.get().urlFor(menuItem.getResponseClass(),null)+"\"];\n");
-        	}else if(menuItem.getDestinationType().equals(DestinationType.WEB_PAGE_INSTANCE)){
+        	if(menuItem.getDestinationType() == DestinationType.WEB_PAGE_CLASS ){
+        		response.getResponse().write("sitems["+(count++)+"]=[\""+menuItem.getMenuText()+"\"," +	"\""+RequestCycle.get().urlFor(menuItem.getResponsePageClass(),null)+"\"];\n");
+        	}else if(menuItem.getDestinationType() == DestinationType.WEB_PAGE_INSTANCE ){
         		response.getResponse().write("sitems["+(count++)+"]=[\""+menuItem.getMenuText()+"\"," +	"\""+RequestCycle.get().urlFor(menuItem.getResponsePage())+"\"];\n");
         	}else{
+        		System.err.println(menuItem.getDestinationType());
         		throw new RuntimeException("This menu can only be applied to web pages");
         	}        	
         }

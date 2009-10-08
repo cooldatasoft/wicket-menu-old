@@ -64,8 +64,8 @@ public class ChromeDropDownMenu extends WicketMenu implements IHeaderContributor
 				Link link = new Link("menuLink") {
 					@Override
 					public void onClick() {
-						if (menuItem!=null && menuItem.getDestinationPage() != null) {
-							setResponsePage(menuItem.getDestinationPage());
+						if (menuItem!=null && menuItem.getResponsePage() != null) {
+							setResponsePage(menuItem.getResponsePage());
 						}
 					}
 				};
@@ -74,7 +74,7 @@ public class ChromeDropDownMenu extends WicketMenu implements IHeaderContributor
 				link.add(new AttributeModifier("rel", true, new Model("dropmenu" + itemCount)));
 				setNumberOfMenu(itemCount++);
 
-				Label linkText = new Label("linkText", menuItem.getText());
+				Label linkText = new Label("linkText", menuItem.getMenuText());
 				linkText.setRenderBodyOnly(true);
 				link.add(linkText);
 				item.add(link);
@@ -102,13 +102,13 @@ public class ChromeDropDownMenu extends WicketMenu implements IHeaderContributor
 						Link link = new Link("menuLink") {
 							@Override
 							public void onClick() {
-								if(subMenuItem != null && subMenuItem.getDestinationPage() != null){
-									setResponsePage(subMenuItem.getDestinationPage());									
+								if(subMenuItem != null && subMenuItem.getResponsePage() != null){
+									setResponsePage(subMenuItem.getResponsePage());									
 								}								
 							}
 						};
 
-						Label linkText = new Label("linkText", subMenuItem.getText());
+						Label linkText = new Label("linkText", subMenuItem.getMenuText());
 						linkText.setRenderBodyOnly(true);
 						link.add(linkText);
 						item.add(link);

@@ -23,6 +23,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.html.resources.CompressedResourceReference;
 import org.apache.wicket.model.Model;
 
+import com.cooldatasoft.common.DestinationType;
 import com.cooldatasoft.common.MenuItem;
 
 public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributor {
@@ -33,19 +34,17 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 	
 	public void processResponse(MenuItem menuItem){
 		switch(menuItem.getDestinationType()){
-			case AJAX_LINK:
+			case DestinationType.EXTERNAL_LINK:	
+				//TODO forward to external link
+				menuItem.getExternalLink();
 				break;
-			case EXTERNAL_LINK:									
+			case DestinationType.WEB_PAGE_CLASS:
+				setResponsePage(menuItem.getResponsePageClass());
 				break;
-			case LINK:
-				break;
-			case WEB_PAGE_CLASS:
-				setResponsePage(menuItem.getResponseClass());
-				break;
-			case WEB_PAGE_INSTANCE:
+			case DestinationType.WEB_PAGE_INSTANCE:
 				setResponsePage(menuItem.getResponsePage());
 				break;
-			case NONE:
+			case DestinationType.NONE:
 				break;
 		}
 	}
@@ -111,7 +110,7 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 						Label subMenuSeperatorOrSecondaryTitle = new Label("subMenuSeperatorOrSecondaryTitle");
 						if(subMenuItem.isSeperator()){						
 							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class",true,new Model("divider divider-horiz")));
-						}else if(subMenuItem.isTitle()){
+						}else if(subMenuItem.isSubmenuTitle()){
 							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class",true,new Model("item-secondary-title")));
 							subMenuSeperatorOrSecondaryTitle.setModel(new Model(subMenuItem.getMenuText()));
 						}						
@@ -121,7 +120,7 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 							subMenuLinkText.setRenderBodyOnly(true);
 						}				
 						subMenuLink.add(subMenuLinkText);
-						if(subMenuItem.isSeperator() || subMenuItem.isTitle()){
+						if(subMenuItem.isSeperator() || subMenuItem.isSubmenuTitle()){
 							subMenuLink.setVisible(false);
 						}else{
 							subMenuSeperatorOrSecondaryTitle.setVisible(false);
@@ -132,7 +131,7 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 					}
 				};				
 				subMenuListContainer.add(subMenuListView);
-				if(menuItem.getSubMenuItemList().size()==0){
+				if(menuItem!=null && menuItem.getSubMenuItemList() != null && menuItem.getSubMenuItemList().size()==0){
 					subMenuListContainer.setVisible(false);
 				}				
 				item.add(link);

@@ -15,6 +15,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.html.resources.CompressedResourceReference;
 import org.apache.wicket.model.Model;
 
+import com.cooldatasoft.common.DestinationType;
 import com.cooldatasoft.common.MenuItem;
 
 
@@ -29,19 +30,15 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 	
 	public void processResponse(MenuItem menuItem){
 		switch(menuItem.getDestinationType()){
-			case AJAX_LINK:
+			case DestinationType.EXTERNAL_LINK:									
 				break;
-			case EXTERNAL_LINK:									
+			case DestinationType.WEB_PAGE_CLASS:
+				setResponsePage(menuItem.getResponsePageClass());
 				break;
-			case LINK:
-				break;
-			case WEB_PAGE_CLASS:
-				setResponsePage(menuItem.getResponseClass());
-				break;
-			case WEB_PAGE_INSTANCE:
+			case DestinationType.WEB_PAGE_INSTANCE:
 				setResponsePage(menuItem.getResponsePage());
 				break;
-			case NONE:
+			case DestinationType.NONE:
 				break;
 		}
 	}
