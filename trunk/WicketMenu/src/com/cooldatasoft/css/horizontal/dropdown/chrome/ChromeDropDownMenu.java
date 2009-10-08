@@ -1,6 +1,5 @@
 package com.cooldatasoft.css.horizontal.dropdown.chrome;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.wicket.AttributeModifier;
@@ -12,14 +11,14 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
-import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.html.resources.CompressedResourceReference;
 import org.apache.wicket.model.Model;
 
 import com.cooldatasoft.common.MenuItem;
+import com.cooldatasoft.common.WicketMenu;
 
 
-public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
+public class ChromeDropDownMenu extends WicketMenu implements IHeaderContributor {
 
 
 	private int numberOfMenu;

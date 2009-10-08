@@ -19,13 +19,13 @@ import org.apache.wicket.markup.html.image.ContextImage;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
-import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.html.resources.CompressedResourceReference;
 import org.apache.wicket.model.Model;
 
 import com.cooldatasoft.common.MenuItem;
+import com.cooldatasoft.common.WicketMenu;
 
-public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributor {
+public class SunriseGlossDropDownMenu extends WicketMenu implements IHeaderContributor {
 	
 	ResourceReference CSS_PATH = new CompressedResourceReference(SunriseGlossDropDownMenu.class,"css/SunriseGloss.css");
 	ContextImage bgLeft = new ContextImage("bgLeft",new Model( "resources/com.cooldatasoft.css.horizontal.dropdown.SunriseGloss/images/nav-bg-l.jpg"));
