@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.cooldatasoft.app.BasePage;
 import com.cooldatasoft.common.MenuItem;
-import com.cooldatasoft.css.horizontal.dropdown.chrome.ChromeDropDownMenu;
+import com.cooldatasoft.horizontal.dropdown.chrome.ChromeDropDownMenu;
 
 public class ChromeDropDownMenuDemo extends BasePage {
 

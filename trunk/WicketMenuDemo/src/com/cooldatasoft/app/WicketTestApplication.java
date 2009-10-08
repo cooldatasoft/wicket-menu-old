@@ -12,4 +12,13 @@ public class WicketTestApplication extends WebApplication {
 		return Index.class;
 	}
 
+	@Override
+	protected void init() {
+		// TODO Auto-generated method stub
+		super.init();
+		getMarkupSettings().setStripWicketTags(true);
+	}
+	
+	
+
 }
