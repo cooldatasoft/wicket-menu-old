@@ -21,7 +21,15 @@ public class Index extends BasePage {
 			}
 		};
 		
+		Link slideInMenuLink = new Link("slideInLink"){
+			@Override
+			public void onClick() {
+				setResponsePage(SlideInMenuDemo.class);
+			}
+		};
+		
 		add(sunriseGlossDropDownMenuLink);
 		add(chromeDropDownMenuLink);
+		add(slideInMenuLink);
 	}
 }

@@ -5,16 +5,15 @@ import java.util.List;
 
 import com.cooldatasoft.app.BasePage;
 import com.cooldatasoft.common.MenuItem;
-import com.cooldatasoft.horizontal.dropdown.sunrisegloss.SunriseGlossDropDownMenu;
+import com.cooldatasoft.vertical.slidein.SlideInMenu;
 
-public class SunriseGlossDropDownMenuDemo extends BasePage {
+public class SlideInMenuDemo extends BasePage{
 
-	public SunriseGlossDropDownMenuDemo() {
+	public SlideInMenuDemo(){
 		List<MenuItem> primaryMenuList = buildMenu();
 		//add your menu to your wicket page
-		add(new SunriseGlossDropDownMenu("sunriseGlossMenu", primaryMenuList));
+		add(new SlideInMenu("slideInMenu", primaryMenuList));
 	}
-
 	private List<MenuItem> buildMenu() {
 		//Create one seperator menu item
 		MenuItem seperatorMenuItem = new MenuItem(true);
@@ -30,32 +29,21 @@ public class SunriseGlossDropDownMenuDemo extends BasePage {
 			MenuItem subMenu3 = new MenuItem("SUBMENU 3", new Index());
 			MenuItem subMenu4 = new MenuItem("Submenu 4", new Index());
 			MenuItem subMenu5 = new MenuItem("SuBmEnU 5", new Index());
-			//define submenu titles if you need one		
-			MenuItem subMenuTitle1 = new MenuItem("Submenu Title 1");
-			MenuItem subMenuTitle2 = new MenuItem("Submenu Title 2");
+
 	    //Add submenus/submenu titles/seperators to the primary menu at your choice of order
 		primaryMenu1.getSubMenuItemList().add(subMenu1);
 		primaryMenu1.getSubMenuItemList().add(subMenu2);
-		primaryMenu1.getSubMenuItemList().add(seperatorMenuItem);
-		primaryMenu1.getSubMenuItemList().add(subMenuTitle1);
 		primaryMenu1.getSubMenuItemList().add(subMenu3);
 		primaryMenu1.getSubMenuItemList().add(subMenu4);
-		primaryMenu1.getSubMenuItemList().add(seperatorMenuItem);
-		primaryMenu1.getSubMenuItemList().add(subMenuTitle2);
 		primaryMenu1.getSubMenuItemList().add(subMenu5);
 		
 		//Create a List which contains the primary menu items in it.	
 		List<MenuItem> primaryMenuList = new ArrayList<MenuItem>();
 		primaryMenuList.add(primaryMenu1);
-		primaryMenuList.add(seperatorMenuItem);
 		primaryMenuList.add(primaryMenu2);
-		primaryMenuList.add(seperatorMenuItem);
 		primaryMenuList.add(primaryMenu3);
-		primaryMenuList.add(seperatorMenuItem);
 		primaryMenuList.add(primaryMenu4);
-		primaryMenuList.add(seperatorMenuItem);
 		primaryMenuList.add(primaryMenu5);
-		primaryMenuList.add(seperatorMenuItem);
 		
 		return primaryMenuList;
 	}
