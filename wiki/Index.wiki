@@ -11,8 +11,3 @@
 = Details =
 
 Only dependency is wicket itself so practically you dont need to add any other jar to your classpath.
-
-
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
