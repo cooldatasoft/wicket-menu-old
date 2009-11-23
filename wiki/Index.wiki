@@ -1,5 +1,5 @@
 #labels Featured
-= List of available css Menu's =
+= List of available css/javascript Menu's =
 [SunriseGlossDropDownMenu]
 
 [ChromeDropDownMenu]
