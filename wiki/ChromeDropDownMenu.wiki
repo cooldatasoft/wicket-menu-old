@@ -6,7 +6,7 @@ Name: Chrome DropDown
 
 Class Name: ChromeDropDownMenu
 
-Pakcage : com.cooldatasoft.horizontal.dropdown.chrome.ChromeDropDownMenu
+Pakcage : com.cooldatasoft.horizontal.dropdown.chrome
 
 Type: Dropdown Css Menu
 
