@@ -11,3 +11,8 @@
 = Details =
 
 Only dependency is wicket itself so practically you dont need to add any other jar to your classpath.
+
+
+
+
+==Any recommendation or wish is very welcome.==
