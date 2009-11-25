@@ -37,7 +37,7 @@ public class MenuItem {
 		setMenuText(menuText);
 		setResponsePageClass(destinationPageClass);
 		setSubMenuItemList(new ArrayList<MenuItem>());
-		setDestinationType(DestinationType.WEB_PAGE_INSTANCE);
+		setDestinationType(DestinationType.WEB_PAGE_CLASS);
 	}
 	
 	public MenuItem(String menuText, Class<? extends WebPage> destinationWebPage,List<MenuItem> subMenuItemList) throws InstantiationException, IllegalAccessException {
