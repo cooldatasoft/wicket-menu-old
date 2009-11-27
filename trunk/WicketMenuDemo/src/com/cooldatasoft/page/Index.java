@@ -7,29 +7,19 @@ import com.cooldatasoft.app.BasePage;
 public class Index extends BasePage {
 
 	public Index() {
-		Link sunriseGlossDropDownMenuLink = new Link("sunriseGlossDropDownMenuLink"){
+		add(getDemoPageLink("sunriseGlossDropDownMenuLink",SunriseGlossDropDownMenuDemo.class));
+		add(getDemoPageLink("chromeDropDownMenuLink",ChromeDropDownMenuDemo.class));
+		add(getDemoPageLink("slideInMenuLink",SlideInMenuDemo.class));
+		add(getDemoPageLink("multiLevelCssMenuLink",MultiLevelCssMenuDemo.class));
+	}
+	
+	private Link  getDemoPageLink(String wicketId, final Class<? extends BasePage> demoPage) {
+		return new Link(wicketId){
+			private static final long serialVersionUID = 470307033803001707L;
 			@Override
 			public void onClick() {
-				setResponsePage(SunriseGlossDropDownMenuDemo.class);
+				setResponsePage(demoPage);
 			}
 		};
-		
-		Link chromeDropDownMenuLink = new Link("chromeDropDownMenuLink"){
-			@Override
-			public void onClick() {
-				setResponsePage(ChromeDropDownMenuDemo.class);
-			}
-		};
-		
-		Link slideInMenuLink = new Link("slideInLink"){
-			@Override
-			public void onClick() {
-				setResponsePage(SlideInMenuDemo.class);
-			}
-		};
-		
-		add(sunriseGlossDropDownMenuLink);
-		add(chromeDropDownMenuLink);
-		add(slideInMenuLink);
 	}
 }
