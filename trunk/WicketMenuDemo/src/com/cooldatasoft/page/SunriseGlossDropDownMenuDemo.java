@@ -15,9 +15,11 @@ public class SunriseGlossDropDownMenuDemo extends BasePage {
 		add(new SunriseGlossDropDownMenu("sunriseGlossMenu", primaryMenuList));
 	}
 
+	/**
+	 * Build Menu as a List of MenuItem objects
+	 * @return List of MenuItem Objects
+	 */
 	private List<MenuItem> buildMenu() {
-		//Create one seperator menu item
-		MenuItem seperatorMenuItem = new MenuItem(true);
 		//Define Primary Menu items (menuText,destinationWebPage)		
 		MenuItem primaryMenu1 = new MenuItem("MENU 1", new Index());
 		MenuItem primaryMenu2 = new MenuItem("MeNu 2", new Index());
@@ -36,26 +38,21 @@ public class SunriseGlossDropDownMenuDemo extends BasePage {
 	    //Add submenus/submenu titles/seperators to the primary menu at your choice of order
 		primaryMenu1.getSubMenuItemList().add(subMenu1);
 		primaryMenu1.getSubMenuItemList().add(subMenu2);
-		primaryMenu1.getSubMenuItemList().add(seperatorMenuItem);
+		primaryMenu1.getSubMenuItemList().add(MenuItem.getMenuSeperator());
 		primaryMenu1.getSubMenuItemList().add(subMenuTitle1);
 		primaryMenu1.getSubMenuItemList().add(subMenu3);
 		primaryMenu1.getSubMenuItemList().add(subMenu4);
-		primaryMenu1.getSubMenuItemList().add(seperatorMenuItem);
+		primaryMenu1.getSubMenuItemList().add(MenuItem.getMenuSeperator());
 		primaryMenu1.getSubMenuItemList().add(subMenuTitle2);
 		primaryMenu1.getSubMenuItemList().add(subMenu5);
 		
 		//Create a List which contains the primary menu items in it.	
 		List<MenuItem> primaryMenuList = new ArrayList<MenuItem>();
 		primaryMenuList.add(primaryMenu1);
-		primaryMenuList.add(seperatorMenuItem);
 		primaryMenuList.add(primaryMenu2);
-		primaryMenuList.add(seperatorMenuItem);
 		primaryMenuList.add(primaryMenu3);
-		primaryMenuList.add(seperatorMenuItem);
 		primaryMenuList.add(primaryMenu4);
-		primaryMenuList.add(seperatorMenuItem);
 		primaryMenuList.add(primaryMenu5);
-		primaryMenuList.add(seperatorMenuItem);
 		
 		return primaryMenuList;
 	}
