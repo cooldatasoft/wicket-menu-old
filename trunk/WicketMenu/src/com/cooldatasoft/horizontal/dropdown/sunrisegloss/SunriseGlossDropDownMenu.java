@@ -28,9 +28,9 @@ import com.cooldatasoft.common.MenuItem;
 
 public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributor {
 	
-	ResourceReference CSS_PATH = new CompressedResourceReference(SunriseGlossDropDownMenu.class,"css/SunriseGloss.css");
-	ContextImage bgLeft = new ContextImage("bgLeft",new Model( "resources/com.cooldatasoft.horizontal.dropdown.sunrisegloss.SunriseGlossDropDownMenu/images/nav-bg-l.jpg"));
-	ContextImage bgRight = new ContextImage("bgRight",new Model( "resources/com.cooldatasoft.horizontal.dropdown.sunrisegloss.SunriseGlossDropDownMenu/images/nav-bg-r.jpg"));
+	private final ResourceReference CSS_PATH = new CompressedResourceReference(SunriseGlossDropDownMenu.class,"css/SunriseGloss.css");
+	private final ContextImage bgLeft = new ContextImage("bgLeft",new Model( "resources/com.cooldatasoft.horizontal.dropdown.sunrisegloss.SunriseGlossDropDownMenu/images/nav-bg-l.jpg"));
+	private final ContextImage bgRight = new ContextImage("bgRight",new Model( "resources/com.cooldatasoft.horizontal.dropdown.sunrisegloss.SunriseGlossDropDownMenu/images/nav-bg-r.jpg"));
 	
 	public void processResponse(MenuItem menuItem){
 		switch(menuItem.getDestinationType()){
@@ -46,6 +46,9 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 				break;
 			case DestinationType.NONE:
 				break;
+			default:
+				//TODO Throw new exception
+				System.err.println();
 		}
 	}
 	

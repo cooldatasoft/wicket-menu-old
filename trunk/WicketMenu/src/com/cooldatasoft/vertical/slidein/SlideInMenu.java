@@ -40,9 +40,9 @@ import com.cooldatasoft.common.MenuItem;
  */
 public class SlideInMenu extends Panel implements IHeaderContributor {
 
-	private ResourceReference SHORTCUTS_JAVASCRIPT;
-	private ResourceReference SHORTCUTS_CSS;
-	private List<MenuItem> menuItemList = new ArrayList<MenuItem>();
+	private final ResourceReference SHORTCUTS_JAVASCRIPT;
+	private final ResourceReference SHORTCUTS_CSS;
+	private List<MenuItem> menuItemList = null;
 	
 	public SlideInMenu(String id, List<MenuItem> menuItemList ){
 		super(id);
@@ -67,7 +67,7 @@ public class SlideInMenu extends Panel implements IHeaderContributor {
         		response.getResponse().write("sitems["+(count++)+"]=[\""+menuItem.getMenuText()+"\"," +	"\""+RequestCycle.get().urlFor(menuItem.getResponsePage())+"\"];\n");
         	}else{
         		System.err.println(menuItem.getDestinationType());
-        		throw new RuntimeException("This menu can only be applied to web pages");
+        		throw new RuntimeException("This menu can only be applied to wicket web pages");
         	}        	
         }
         
@@ -81,7 +81,11 @@ public class SlideInMenu extends Panel implements IHeaderContributor {
 	}
 
 	public void setMenuItemList(List<MenuItem> menuItemList) {
-		this.menuItemList = menuItemList;
+		if(menuItemList ==null) {
+			this.menuItemList = new ArrayList<MenuItem>();
+		}else {
+			this.menuItemList = menuItemList;
+		}
 	}
 
 }

@@ -24,8 +24,8 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 
 	private int numberOfMenu;
 
-	private ResourceReference SHORTCUTS_JAVASCRIPT;
-	private ResourceReference SHORTCUTS_CSS;
+	private ResourceReference SHORTCUTS_JAVASCRIPT = null;
+	private ResourceReference SHORTCUTS_CSS = null;
 	public enum CSS{THEME1,THEME2,THEME3,THEME4};
 	
 	public void processResponse(MenuItem menuItem){
