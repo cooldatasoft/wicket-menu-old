@@ -28,7 +28,7 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 	private ResourceReference SHORTCUTS_CSS = null;
 	public enum CSS{THEME1,THEME2,THEME3,THEME4};
 	
-	public void processResponse(MenuItem menuItem){
+	private void processResponse(MenuItem menuItem){
 		switch(menuItem.getDestinationType()){
 			case DestinationType.EXTERNAL_LINK:									
 				break;
