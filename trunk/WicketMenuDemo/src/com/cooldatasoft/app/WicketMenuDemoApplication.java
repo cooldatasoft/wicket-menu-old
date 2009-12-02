@@ -5,7 +5,7 @@ import org.apache.wicket.protocol.http.WebApplication;
 
 import com.cooldatasoft.page.Index;
 
-public class WicketTestApplication extends WebApplication {
+public class WicketMenuDemoApplication extends WebApplication {
 
 	@Override
 	public Class<? extends WebPage> getHomePage() {
@@ -14,7 +14,6 @@ public class WicketTestApplication extends WebApplication {
 
 	@Override
 	protected void init() {
-		// TODO Auto-generated method stub
 		super.init();
 		getMarkupSettings().setStripWicketTags(true);
 	}
