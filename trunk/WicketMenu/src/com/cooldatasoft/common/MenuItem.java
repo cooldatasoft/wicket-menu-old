@@ -1,11 +1,12 @@
 package com.cooldatasoft.common;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.wicket.markup.html.WebPage;
 
-public class MenuItem {
+public class MenuItem implements Serializable {
 
 	private int destinationType;
 	private String menuText;
@@ -13,7 +14,7 @@ public class MenuItem {
 	private WebPage responsePage;
 	private String externalLink;
 	
-	private List<MenuItem> subMenuItemList;
+	private List<MenuItem> subMenuItemList = new ArrayList<MenuItem>();
 	private boolean seperator = false;
 	private boolean submenuTitle = false;
 	
