@@ -9,13 +9,15 @@ package com.cooldatasoft.horizontal.dropdown.sunrisegloss;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import org.apache.wicket.AttributeModifier;
+import org.apache.wicket.RequestCycle;
 import org.apache.wicket.ResourceReference;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.image.ContextImage;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
@@ -25,12 +27,15 @@ import org.apache.wicket.model.Model;
 
 import com.cooldatasoft.common.DestinationType;
 import com.cooldatasoft.common.MenuItem;
+import com.cooldatasoft.common.StaticImage;
 
 public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributor {
 	
+	private static final long serialVersionUID = 8698968844637387754L;
+	
 	private final ResourceReference CSS_PATH = new CompressedResourceReference(SunriseGlossDropDownMenu.class,"css/SunriseGloss.css");
-	private final ContextImage bgLeft = new ContextImage("bgLeft",new Model( "resources/com.cooldatasoft.horizontal.dropdown.sunrisegloss.SunriseGlossDropDownMenu/images/nav-bg-l.jpg"));
-	private final ContextImage bgRight = new ContextImage("bgRight",new Model( "resources/com.cooldatasoft.horizontal.dropdown.sunrisegloss.SunriseGlossDropDownMenu/images/nav-bg-r.jpg"));
+	private final ResourceReference bgLeft = new ResourceReference(SunriseGlossDropDownMenu.class,"images/nav-bg-l.jpg");
+	private final ResourceReference bgRight = new ResourceReference(SunriseGlossDropDownMenu.class,"images/nav-bg-r.jpg");
 	
 	public void processResponse(MenuItem menuItem){
 		switch(menuItem.getDestinationType()){
@@ -48,18 +53,21 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 				break;
 			default:
 				//TODO Throw new exception
-				System.err.println();
+				throw new RuntimeException("Destination type not valid!");
 		}
 	}
 	
 	public SunriseGlossDropDownMenu(String id, List<MenuItem> menuItemList) {
 		super(id);
 		
-		bgLeft.add(new AttributeModifier("class",new Model("float-left")));
-		bgRight.add(new AttributeModifier("class",new Model("float-right")));
+		StaticImage bgLeftImage = new StaticImage("bgLeft", new Model( RequestCycle.get().urlFor(bgLeft).toString()));
+		StaticImage bgRightImage = new StaticImage("bgRight", new Model( RequestCycle.get().urlFor(bgRight).toString()));
+		
+		bgLeftImage.add(new AttributeModifier("class",true,new Model("float-left")));
+		bgRightImage.add(new AttributeModifier("class",true,new Model("float-right")));
 		   
-		add(bgLeft);
-		add(bgRight);
+		add(bgLeftImage);
+		add(bgRightImage);
 		
 		
 		ListView primaryMenuListView = new ListView("menuItem",menuItemList){
