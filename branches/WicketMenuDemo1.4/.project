@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>WicketMenuDemo</name>
+	<name>WicketMenuDemo1.4</name>
 	<comment></comment>
 	<projects>
 		<project>WicketMenu</project>
+		<project>WicketMenu1.4</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

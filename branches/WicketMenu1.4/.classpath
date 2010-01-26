@@ -3,10 +3,9 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/WicketMenuDemo/WebContent/WEB-INF/lib/wicket-1.3.7.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="/WicketMenuDemo1.4/WebContent/WEB-INF/lib/log4j-1.2.13.jar"/>
+	<classpathentry kind="lib" path="/WicketMenuDemo1.4/WebContent/WEB-INF/lib/slf4j-api-1.4.2.jar"/>
+	<classpathentry kind="lib" path="/WicketMenuDemo1.4/WebContent/WEB-INF/lib/slf4j-log4j12-1.4.2.jar"/>
+	<classpathentry kind="lib" path="/WicketMenuDemo1.4/WebContent/WEB-INF/lib/wicket-1.4.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

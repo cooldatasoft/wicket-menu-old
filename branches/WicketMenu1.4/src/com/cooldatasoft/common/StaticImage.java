@@ -15,7 +15,7 @@ public class StaticImage extends WebComponent {
     protected void onComponentTag(ComponentTag tag) {
         super.onComponentTag(tag);
         checkComponentTag(tag, "img");
-        tag.put("src", getModelObjectAsString());
+        tag.put("src", getDefaultModelObjectAsString());
     }
 
 }

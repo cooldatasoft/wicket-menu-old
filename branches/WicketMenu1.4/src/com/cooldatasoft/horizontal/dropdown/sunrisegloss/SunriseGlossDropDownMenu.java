@@ -90,7 +90,7 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 				link.add(new AttributeModifier("class",true,new Model("item-primary")));
 				
 				if(menuItem!=null && menuItem.getMenuText()!=null && !menuItem.isSeperator()){
-					linkText.setModel(new Model(menuItem.getMenuText()));
+					linkText.setDefaultModel(new Model(menuItem.getMenuText()));
 					linkText.setRenderBodyOnly(true);
 				}				
 				link.add(linkText);
@@ -123,11 +123,11 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class",true,new Model("divider divider-horiz")));
 						}else if(subMenuItem.isSubmenuTitle()){
 							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class",true,new Model("item-secondary-title")));
-							subMenuSeperatorOrSecondaryTitle.setModel(new Model(subMenuItem.getMenuText()));
+							subMenuSeperatorOrSecondaryTitle.setDefaultModel(new Model(subMenuItem.getMenuText()));
 						}						
 						Label subMenuLinkText = new Label("subMenuLinkText");						
 						if(subMenuItem!=null && subMenuItem.getMenuText()!=null && !subMenuItem.isSeperator()){
-							subMenuLinkText.setModel(new Model(subMenuItem.getMenuText()));
+							subMenuLinkText.setDefaultModel(new Model(subMenuItem.getMenuText()));
 							subMenuLinkText.setRenderBodyOnly(true);
 						}				
 						subMenuLink.add(subMenuLinkText);

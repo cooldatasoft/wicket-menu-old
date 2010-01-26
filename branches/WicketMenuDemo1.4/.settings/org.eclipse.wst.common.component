@@ -3,7 +3,7 @@
     <wb-module deploy-name="WicketMenuDemo">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/WicketMenu/WicketMenu">
+        <dependent-module archiveName="WicketMenu1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/WicketMenu1.4/WicketMenu1.4">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="build/classes"/>
