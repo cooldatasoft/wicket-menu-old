@@ -3,6 +3,8 @@ package com.cooldatasoft.wicket;
 import junit.framework.TestCase;
 import org.apache.wicket.util.tester.WicketTester;
 
+import com.cooldatasoft.wicket.page.HomePage;
+
 /**
  * Simple test using the WicketTester
  */
