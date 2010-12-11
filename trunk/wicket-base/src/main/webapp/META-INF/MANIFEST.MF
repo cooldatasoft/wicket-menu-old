@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Archiver-Version: Plexus Archiver
-Created-By: Apache Maven
-Built-By: UcarF
-Build-Jdk: 1.6.0_21
-Package: com.nds.cmdc
-Main-Class: com.cooldatasoft.wicketbase.JettySelfStart
-Class-Path: 
-
