@@ -59,8 +59,8 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 	public SunriseGlossDropDownMenu(String id, List<MenuItem> menuItemList) {
 		super(id);
 		
-		StaticImage bgLeftImage = new StaticImage("bgLeft", new Model( RequestCycle.get().render(bgLeft).toString()));
-		StaticImage bgRightImage = new StaticImage("bgRight", new Model( RequestCycle.get().urlFor(bgRight).toString()));
+		StaticImage bgLeftImage = new StaticImage("bgLeft", new Model( RequestCycle.get().urlFor(bgLeft,null).toString()));
+		StaticImage bgRightImage = new StaticImage("bgRight", new Model( RequestCycle.get().urlFor(bgRight,null).toString()));
 		
 		bgLeftImage.add(new AttributeModifier("class",true,new Model("float-left")));
 		bgRightImage.add(new AttributeModifier("class",true,new Model("float-right")));

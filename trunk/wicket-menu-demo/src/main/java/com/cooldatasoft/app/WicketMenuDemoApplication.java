@@ -1,8 +1,8 @@
 package com.cooldatasoft.app;
 
 import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.protocol.http.HttpSessionStore;
 import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.session.HttpSessionStore;
 import org.apache.wicket.session.ISessionStore;
 
 import com.cooldatasoft.page.Index;
@@ -24,9 +24,5 @@ public class WicketMenuDemoApplication extends WebApplication {
 
 	}
 
-	@Override
-	protected ISessionStore newSessionStore() {
-		// for Google App Engine
-		return new HttpSessionStore(this);
-	}
+	
 }
