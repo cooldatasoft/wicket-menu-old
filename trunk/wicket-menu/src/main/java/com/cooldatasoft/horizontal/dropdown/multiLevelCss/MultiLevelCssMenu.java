@@ -15,21 +15,18 @@ import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 import org.apache.wicket.request.resource.PackageResourceReference;
 import org.apache.wicket.request.resource.ResourceReference;
+import org.apache.wicket.util.string.JavaScriptUtils;
 
 import com.cooldatasoft.common.DestinationType;
 import com.cooldatasoft.common.MenuItem;
-import com.cooldatasoft.horizontal.dropdown.chrome.ChromeDropDownMenu;
 /**
- * http://www.dynamicdrive.com/style/csslibrary/item/jquery_multi_level_css_menu_2/
- * @author fucar
+ * http://www.dynamicdrive.com/style/csslibrary/item/jquery_multi_level_css_menu_2/ 
+ * @author Fatih Mehmet UCAR - fmucar@gmail.com
  *
  */
 public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -3283201240996004307L;
+	private static final long serialVersionUID = 1L;
 	
 	private final static ResourceReference DOWN_GIF = new PackageResourceReference(MultiLevelCssMenu.class, "js/down.gif");
 	private final static ResourceReference RIGHT_GIF = new PackageResourceReference(MultiLevelCssMenu.class, "js/right.gif");
@@ -39,6 +36,22 @@ public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 	private final static ResourceReference MENU_JAVASCRIPT = new JavaScriptResourceReference(MultiLevelCssMenu.class,"js/MultiLevelCssMenu.js");
 	
 	
+	@Override
+	public void renderHead(IHeaderResponse response) {
+		
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("var downGifRelativeLocation='").append(RequestCycle.get().urlFor(DOWN_GIF, null)).append("';");
+		buffer.append("var rightGifRelativeLocation='").append(RequestCycle.get().urlFor(RIGHT_GIF, null)).append("';");
+
+		response.getResponse().write(JavaScriptUtils.SCRIPT_OPEN_TAG);
+        response.getResponse().write(buffer.toString());
+        response.getResponse().write(JavaScriptUtils.SCRIPT_CLOSE_TAG); 
+		
+		response.renderJavaScriptReference(JQUERY_MIN_JAVASCRIPT);
+		response.renderJavaScriptReference(MENU_JAVASCRIPT);
+		response.renderCSSReference(MENU_CSS);
+	}
+	
 	public MultiLevelCssMenu(String id, List<MenuItem> menuItemList) {
 		super(id);
 		setRenderBodyOnly(true);
@@ -46,25 +59,6 @@ public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 		multiLevelMenu.setRenderBodyOnly(true);
 		add(multiLevelMenu);
 	}
-	
-	
-	
-	@Override
-	public void renderHead(IHeaderResponse response) {
-		
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("<script type=\"text/javascript\">");
-		buffer.append("\nvar downGifRelativeLocation='").append(RequestCycle.get().urlFor(DOWN_GIF, null)).append("';");
-		buffer.append("\nvar rightGifRelativeLocation='").append(RequestCycle.get().urlFor(RIGHT_GIF, null)).append("';");
-		buffer.append("\n</script>\n");		
-		response.renderString(buffer.toString());
-		
-		
-		response.renderJavaScriptReference(JQUERY_MIN_JAVASCRIPT);
-		response.renderJavaScriptReference(MENU_JAVASCRIPT);
-		response.renderCSSReference(MENU_CSS);
-	}
-
 	
 	private void processResponse(MenuItem menuItem){
 		switch(menuItem.getDestinationType()){
@@ -85,10 +79,7 @@ public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 	
 	class MultiLevelMenu extends Panel {
 
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = -4114081300762247367L;
+		private static final long serialVersionUID = 1L;
 
 		public MultiLevelMenu(String id,List<MenuItem> menuItemList) {
 			super(id);
@@ -102,18 +93,12 @@ public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 		
 		private ListView<MenuItem> buildMultiLevelMenu(String id,List<MenuItem> menuItemList) {
 			return new ListView<MenuItem>(id, menuItemList) {			
-				/**
-				 * 
-				 */
-				private static final long serialVersionUID = -8479988245768999659L;
+				private static final long serialVersionUID = 1L;
 
 				public void populateItem(final ListItem<MenuItem> item) {
 					final MenuItem menuItem = ((MenuItem) item.getModelObject());
 					Link<MenuItem> link = new Link<MenuItem>("menuLink") {
-						/**
-						 * 
-						 */
-						private static final long serialVersionUID = 3090379600383631234L;
+						private static final long serialVersionUID = 1L;
 
 						@Override
 						public void onClick() {
@@ -127,8 +112,7 @@ public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 					linkText.setRenderBodyOnly(true);
 					link.add(linkText);
 					item.add(link);
-					
-					
+										
 					List<MenuItem> submenuItemList = menuItem.getSubMenuItemList();
 					//INFO If submenu exists, output it to html. If not, add empty markup container and hide it.
 					if(submenuItemList != null && submenuItemList.size()>0) {

@@ -9,14 +9,16 @@ import com.cooldatasoft.vertical.slidein.SlideInMenu;
 
 public class SlideInMenuDemo extends BasePage{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6768855341372249901L;
 	public SlideInMenuDemo(){
 		List<MenuItem> primaryMenuList = buildMenu();
 		//add your menu to your wicket page
 		add(new SlideInMenu("slideInMenu", primaryMenuList));
 	}
 	private List<MenuItem> buildMenu() {
-		//Create one seperator menu item
-		MenuItem seperatorMenuItem = new MenuItem(true);
 		//Define Primary Menu items (menuText,destinationWebPage)		
 		MenuItem primaryMenu1 = new MenuItem("MENU 1", new Index());
 		MenuItem primaryMenu2 = new MenuItem("MeNu 2", new Index());

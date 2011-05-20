@@ -9,6 +9,11 @@ import com.cooldatasoft.horizontal.dropdown.chrome.ChromeDropDownMenu;
 
 public class ChromeDropDownMenuDemo extends BasePage {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6195466051934462178L;
+
 	public ChromeDropDownMenuDemo(){
 		List<MenuItem> primaryMenuList = buildMenu();
 		//add your menu to your wicket page

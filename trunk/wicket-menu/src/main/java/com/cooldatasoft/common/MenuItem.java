@@ -5,14 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.wicket.markup.html.WebPage;
-
+/**
+ * 
+ * @author Fatih Mehmet UCAR - fmucar@gmail.com
+ *
+ */
 public class MenuItem implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1205864748955809884L;
-	
+	private static final long serialVersionUID = 1L;
+
 	private int destinationType;
 	private String menuText;
 	private Class<? extends WebPage> responsePageClass;

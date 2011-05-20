@@ -1,5 +1,9 @@
 package com.cooldatasoft.common;
-
+/**
+ * 
+ * @author Fatih Mehmet UCAR - fmucar@gmail.com
+ *
+ */
 public interface DestinationType {
 
 	public static final int WEB_PAGE_CLASS = 1;

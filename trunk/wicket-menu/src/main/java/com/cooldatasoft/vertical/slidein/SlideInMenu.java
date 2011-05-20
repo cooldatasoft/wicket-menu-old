@@ -36,36 +36,30 @@ import com.cooldatasoft.common.MenuItem;
  * (change 12px and Verdana as desired). The last line deterines the spacing between 
  * each line of text in the menu.
  * 
- * @author fmucar
+ * @author Fatih Mehmet UCAR - fmucar@gmail.com
  *
  */
 public class SlideInMenu extends Panel implements IHeaderContributor {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1346875568311565548L;
+	private static final long serialVersionUID = 1L;
 	
-	private final ResourceReference SHORTCUTS_JAVASCRIPT;
-	private final ResourceReference SHORTCUTS_CSS;
+	private final static ResourceReference MENU_JS = new JavaScriptResourceReference(SlideInMenu.class,"js/SlideInMenu.js");
+	private final static ResourceReference MENU_CSS = new CssResourceReference(SlideInMenu.class,"css/SlideInMenu.css");
+	
 	private List<MenuItem> menuItemList = null;
 	
 	public SlideInMenu(String id, List<MenuItem> menuItemList ){
 		super(id);
 		setMenuItemList(menuItemList);
-		SHORTCUTS_JAVASCRIPT = new JavaScriptResourceReference(SlideInMenu.class,"js/SlideInMenu.js");
-		SHORTCUTS_CSS = new CssResourceReference(SlideInMenu.class,"css/SlideInMenu.css");
-		
 		setRenderBodyOnly(true);
 	}
 	
 	@Override
 	public void renderHead(IHeaderResponse response) {
-
-		response.getResponse().write(JavaScriptUtils.SCRIPT_OPEN_TAG);
+		
         int count=0;
+        response.getResponse().write(JavaScriptUtils.SCRIPT_OPEN_TAG);
         response.getResponse().write("var sitems = new Array();\n");
-        
         for(MenuItem menuItem:getMenuItemList()){
         	if(menuItem.getDestinationType() == DestinationType.WEB_PAGE_CLASS ){
         		response.getResponse().write("sitems["+(count++)+"]=[\""+menuItem.getMenuText()+"\"," +	"\""+RequestCycle.get().urlFor(menuItem.getResponsePageClass(),null)+"\"];\n");
@@ -76,10 +70,11 @@ public class SlideInMenu extends Panel implements IHeaderContributor {
         		throw new RuntimeException("This menu can only be applied to wicket web pages");
         	}        	
         }
+        response.getResponse().write(JavaScriptUtils.SCRIPT_CLOSE_TAG);
         
-        response.getResponse().write(JavaScriptUtils.SCRIPT_CLOSE_TAG);        
-        response.renderJavaScriptReference(SHORTCUTS_JAVASCRIPT);
-        response.renderCSSReference(SHORTCUTS_CSS);	
+        
+        response.renderJavaScriptReference(MENU_JS);
+        response.renderCSSReference(MENU_CSS);	
 	}
 
 	public List<MenuItem> getMenuItemList() {
