@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.cooldatasoft</groupId>
 	<artifactId>wicket-menu</artifactId>
-	<version>0.0.4-SNAPHOT-wicket1.4.17</version>
+	<version>0.0.4-SNAPHOT-wicket1.4</version>
 	<packaging>jar</packaging>
 	<name>Wicket Menu</name>
 
@@ -86,6 +86,10 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<scm>
+		<developerConnection>Fatih Mehmet UCAR</developerConnection>
+		<url>https://wicket-menu.googlecode.com/svn/trunk/wicket-menu</url>
+	</scm>
 	<build>
 		<pluginManagement>
 			<plugins>
