@@ -3,13 +3,14 @@ package com.cooldatasoft.vertical.slidein;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.wicket.RequestCycle;
-import org.apache.wicket.ResourceReference;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.markup.html.resources.CompressedResourceReference;
-import org.apache.wicket.util.string.JavascriptUtils;
+import org.apache.wicket.request.cycle.RequestCycle;
+import org.apache.wicket.request.resource.CssResourceReference;
+import org.apache.wicket.request.resource.JavaScriptResourceReference;
+import org.apache.wicket.request.resource.ResourceReference;
+import org.apache.wicket.util.string.JavaScriptUtils;
 
 import com.cooldatasoft.common.DestinationType;
 import com.cooldatasoft.common.MenuItem;
@@ -47,8 +48,8 @@ public class SlideInMenu extends Panel implements IHeaderContributor {
 	public SlideInMenu(String id, List<MenuItem> menuItemList ){
 		super(id);
 		setMenuItemList(menuItemList);
-		SHORTCUTS_JAVASCRIPT = new CompressedResourceReference(SlideInMenu.class,"js/SlideInMenu.js");
-		SHORTCUTS_CSS = new CompressedResourceReference(SlideInMenu.class,"css/SlideInMenu.css");
+		SHORTCUTS_JAVASCRIPT = new JavaScriptResourceReference(SlideInMenu.class,"js/SlideInMenu.js");
+		SHORTCUTS_CSS = new CssResourceReference(SlideInMenu.class,"css/SlideInMenu.css");
 		
 		setRenderBodyOnly(true);
 	}
@@ -56,7 +57,7 @@ public class SlideInMenu extends Panel implements IHeaderContributor {
 	@Override
 	public void renderHead(IHeaderResponse response) {
 
-		response.getResponse().write(JavascriptUtils.SCRIPT_OPEN_TAG);
+		response.getResponse().write(JavaScriptUtils.SCRIPT_OPEN_TAG);
         int count=0;
         response.getResponse().write("var sitems = new Array();\n");
         
@@ -71,8 +72,8 @@ public class SlideInMenu extends Panel implements IHeaderContributor {
         	}        	
         }
         
-        response.getResponse().write(JavascriptUtils.SCRIPT_CLOSE_TAG);        
-        response.renderJavascriptReference(SHORTCUTS_JAVASCRIPT);
+        response.getResponse().write(JavaScriptUtils.SCRIPT_CLOSE_TAG);        
+        response.renderJavaScriptReference(SHORTCUTS_JAVASCRIPT);
         response.renderCSSReference(SHORTCUTS_CSS);	
 	}
 

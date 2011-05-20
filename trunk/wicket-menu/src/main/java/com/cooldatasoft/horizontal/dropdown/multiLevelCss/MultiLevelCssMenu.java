@@ -2,7 +2,6 @@ package com.cooldatasoft.horizontal.dropdown.multiLevelCss;
 
 import java.util.List;
 
-import org.apache.wicket.ResourceReference;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -11,7 +10,9 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.markup.html.resources.CompressedResourceReference;
+import org.apache.wicket.request.resource.CssResourceReference;
+import org.apache.wicket.request.resource.JavaScriptResourceReference;
+import org.apache.wicket.request.resource.ResourceReference;
 
 import com.cooldatasoft.common.DestinationType;
 import com.cooldatasoft.common.MenuItem;
@@ -22,9 +23,9 @@ import com.cooldatasoft.common.MenuItem;
  */
 public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 
-	private ResourceReference SHORTCUTS_CSS = new CompressedResourceReference(MultiLevelCssMenu.class,"css/MultiLevelCssMenu.css");
-	private ResourceReference SHORTCUTS_JAVASCRIPT = new CompressedResourceReference(MultiLevelCssMenu.class,"js/jqueryMin.js");
-	private ResourceReference SHORTCUTS_JAVASCRIPT2 = new CompressedResourceReference(MultiLevelCssMenu.class,"js/MultiLevelCssMenu.js");
+	private ResourceReference SHORTCUTS_CSS = new CssResourceReference(MultiLevelCssMenu.class,"css/MultiLevelCssMenu.css");
+	private ResourceReference SHORTCUTS_JAVASCRIPT = new JavaScriptResourceReference(MultiLevelCssMenu.class,"js/jqueryMin.js");
+	private ResourceReference SHORTCUTS_JAVASCRIPT2 = new JavaScriptResourceReference(MultiLevelCssMenu.class,"js/MultiLevelCssMenu.js");
 	
 	public MultiLevelCssMenu(String id, List<MenuItem> menuItemList) {
 		super(id);
@@ -40,8 +41,8 @@ public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 	@Override
 	public void renderHead(IHeaderResponse response) {
 		response.renderCSSReference(SHORTCUTS_CSS);
-		response.renderJavascriptReference(SHORTCUTS_JAVASCRIPT);
-		response.renderJavascriptReference(SHORTCUTS_JAVASCRIPT2);
+		response.renderJavaScriptReference(SHORTCUTS_JAVASCRIPT);
+		response.renderJavaScriptReference(SHORTCUTS_JAVASCRIPT2);		 
 	}
 
 	
