@@ -59,22 +59,32 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 	public SunriseGlossDropDownMenu(String id, List<MenuItem> menuItemList) {
 		super(id);
 		
-		StaticImage bgLeftImage = new StaticImage("bgLeft", new Model( RequestCycle.get().urlFor(bgLeft,null).toString()));
-		StaticImage bgRightImage = new StaticImage("bgRight", new Model( RequestCycle.get().urlFor(bgRight,null).toString()));
+		StaticImage bgLeftImage = new StaticImage("bgLeft", new Model<String>( RequestCycle.get().urlFor(bgLeft,null).toString()));
+		StaticImage bgRightImage = new StaticImage("bgRight", new Model<String>( RequestCycle.get().urlFor(bgRight,null).toString()));
 		
-		bgLeftImage.add(new AttributeModifier("class",true,new Model("float-left")));
-		bgRightImage.add(new AttributeModifier("class",true,new Model("float-right")));
+		bgLeftImage.add(new AttributeModifier("class",true,new Model<String>("float-left")));
+		bgRightImage.add(new AttributeModifier("class",true,new Model<String>("float-right")));
 		   
 		add(bgLeftImage);
 		add(bgRightImage);
 		
 		
-		ListView primaryMenuListView = new ListView("menuItem",menuItemList){
+		ListView<MenuItem> primaryMenuListView = new ListView<MenuItem>("menuItem",menuItemList){
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = -6244245389232575173L;
+
 			@Override
-			protected void populateItem(ListItem item) {
+			protected void populateItem(ListItem<MenuItem> item) {
 				final MenuItem menuItem = (MenuItem) item.getModelObject();
 				
-				Link link = new Link("menuLink") {
+				Link<MenuItem> link = new Link<MenuItem>("menuLink") {
+					/**
+					 * 
+					 */
+					private static final long serialVersionUID = -9163180393954821969L;
+
 					@Override
 					public void onClick() {
 						if (menuItem != null ) {
@@ -83,13 +93,13 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 					}
 				};
 				Label seperator = new Label("menuSeperator");
-				seperator.add(new AttributeModifier("class",true,new Model("divider divider-vert")));
+				seperator.add(new AttributeModifier("class",true,new Model<String>("divider divider-vert")));
 				
 				Label linkText = new Label("linkText");
-				link.add(new AttributeModifier("class",true,new Model("item-primary")));
+				link.add(new AttributeModifier("class",true,new Model<String>("item-primary")));
 				
 				if(menuItem!=null && menuItem.getMenuText()!=null && !menuItem.isSeperator()){
-					linkText.setDefaultModel(new Model(menuItem.getMenuText()));
+					linkText.setDefaultModel(new Model<String>(menuItem.getMenuText()));
 					linkText.setRenderBodyOnly(true);
 				}				
 				link.add(linkText);
@@ -104,12 +114,22 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 				if(menuItem.getSubMenuItemList() != null){
 					subMenuList = menuItem.getSubMenuItemList();
 				}				
-				ListView subMenuListView = new ListView("subMenuItem",subMenuList){
+				ListView<MenuItem> subMenuListView = new ListView<MenuItem>("subMenuItem",subMenuList){
+					/**
+					 * 
+					 */
+					private static final long serialVersionUID = -2371408396442359366L;
+
 					@Override
-					protected void populateItem(ListItem item) {
+					protected void populateItem(ListItem<MenuItem> item) {
 						final MenuItem subMenuItem = (MenuItem) item.getModelObject();
 						
-						Link subMenuLink = new Link("subMenuLink") {
+						Link<MenuItem> subMenuLink = new Link<MenuItem>("subMenuLink") {
+							/**
+							 * 
+							 */
+							private static final long serialVersionUID = 7343227367644127834L;
+
 							@Override
 							public void onClick() {
 								if (subMenuItem != null) {
@@ -119,14 +139,14 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 						};
 						Label subMenuSeperatorOrSecondaryTitle = new Label("subMenuSeperatorOrSecondaryTitle");
 						if(subMenuItem.isSeperator()){						
-							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class",true,new Model("divider divider-horiz")));
+							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class",true,new Model<String>("divider divider-horiz")));
 						}else if(subMenuItem.isSubmenuTitle()){
-							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class",true,new Model("item-secondary-title")));
-							subMenuSeperatorOrSecondaryTitle.setDefaultModel(new Model(subMenuItem.getMenuText()));
+							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class",true,new Model<String>("item-secondary-title")));
+							subMenuSeperatorOrSecondaryTitle.setDefaultModel(new Model<String>(subMenuItem.getMenuText()));
 						}						
 						Label subMenuLinkText = new Label("subMenuLinkText");						
 						if(subMenuItem!=null && subMenuItem.getMenuText()!=null && !subMenuItem.isSeperator()){
-							subMenuLinkText.setDefaultModel(new Model(subMenuItem.getMenuText()));
+							subMenuLinkText.setDefaultModel(new Model<String>(subMenuItem.getMenuText()));
 							subMenuLinkText.setRenderBodyOnly(true);
 						}				
 						subMenuLink.add(subMenuLinkText);
