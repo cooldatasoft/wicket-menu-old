@@ -17,24 +17,51 @@ import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 import org.apache.wicket.request.resource.PackageResourceReference;
 import org.apache.wicket.request.resource.ResourceReference;
+import org.apache.wicket.util.string.JavaScriptUtils;
 
 import com.cooldatasoft.common.DestinationType;
 import com.cooldatasoft.common.MenuItem;
-
+/**
+ * 
+ * @author Fatih Mehmet UCAR - fmucar@gmail.com
+ *
+ */
 public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 
-	private static final long serialVersionUID = -2273238307940469075L;
+	private static final long serialVersionUID = 1L;
 
 	private final static ResourceReference DOWN_GIF = new PackageResourceReference(ChromeDropDownMenu.class, "images/down.gif");
-	
-	private int numberOfMenu;
-	private ResourceReference javaScriptResourceReference;
-	private ResourceReference cssResourceReference;
+	private static final ResourceReference MENU_JS= new JavaScriptResourceReference(ChromeDropDownMenu.class, "js/chrome.js");
+	private final static CssResourceReference MENU_CSS_THEME1 = new CssResourceReference(ChromeDropDownMenu.class, "css/chrome1.css");
+	private final static CssResourceReference MENU_CSS_THEME2 = new CssResourceReference(ChromeDropDownMenu.class, "css/chrome2.css");
+	private final static CssResourceReference MENU_CSS_THEME3 = new CssResourceReference(ChromeDropDownMenu.class, "css/chrome3.css");
+	private final static CssResourceReference MENU_CSS_THEME4 = new CssResourceReference(ChromeDropDownMenu.class, "css/chrome4.css");
 	
 	public enum CSS {
 		THEME1, THEME2, THEME3, THEME4
 	};
+	
+	private int numberOfMenu;
+	private ResourceReference menuCssResourceReference;
+	
+	@Override
+	public void renderHead(IHeaderResponse response) {
 
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("var downGifRelativeLocation='<img src=\"");
+		buffer.append(RequestCycle.get().urlFor(DOWN_GIF, null));
+		buffer.append("\" border=\"0\" />'; ");		
+
+		response.getResponse().write(JavaScriptUtils.SCRIPT_OPEN_TAG);
+        response.getResponse().write(buffer.toString());
+        response.getResponse().write(JavaScriptUtils.SCRIPT_CLOSE_TAG); 
+        
+		
+		response.renderJavaScriptReference(MENU_JS);
+		response.renderCSSReference(menuCssResourceReference);
+
+	}
+	
 	private void processResponse(MenuItem menuItem) {
 		switch (menuItem.getDestinationType()) {
 		case DestinationType.EXTERNAL_LINK:
@@ -65,32 +92,28 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 
 	public ChromeDropDownMenu(String id, List<MenuItem> menuItemList, CSS cssTheme) {
 		super(id);
-		javaScriptResourceReference = new JavaScriptResourceReference(ChromeDropDownMenu.class, "js/chrome.js");
 		if (cssTheme == CSS.THEME1) {
-			cssResourceReference = new CssResourceReference(ChromeDropDownMenu.class, "css/chrome1.css");
+			menuCssResourceReference = MENU_CSS_THEME1;
 		} else if (cssTheme == CSS.THEME2) {
-			cssResourceReference = new CssResourceReference(ChromeDropDownMenu.class, "css/chrome2.css");
+			menuCssResourceReference = MENU_CSS_THEME2;
 		} else if (cssTheme == CSS.THEME3) {
-			cssResourceReference = new CssResourceReference(ChromeDropDownMenu.class, "css/chrome3.css");
+			menuCssResourceReference = MENU_CSS_THEME3;
 		} else if (cssTheme == CSS.THEME4) {
-			cssResourceReference = new CssResourceReference(ChromeDropDownMenu.class, "css/chrome4.css");
+			menuCssResourceReference = MENU_CSS_THEME4;
+		}else{
+			menuCssResourceReference = MENU_CSS_THEME1;
 		}
 
 		ListView<MenuItem> chromePrimaryMenuListView = new ListView<MenuItem>("primaryMenuList", menuItemList) {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = -7286734385469675250L;
+
+			private static final long serialVersionUID = 1L;
 			int itemCount = 0;
 
 			public void populateItem(final ListItem<MenuItem> item) {
 
 				final MenuItem menuItem = ((MenuItem) item.getModelObject());
 				Link<MenuItem> link = new Link<MenuItem>("menuLink") {
-					/**
-					 * 
-					 */
-					private static final long serialVersionUID = 5670656306063413870L;
+					private static final long serialVersionUID = 1L;
 
 					@Override
 					public void onClick() {
@@ -114,10 +137,7 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 		add(chromePrimaryMenuListView);
 
 		ListView<MenuItem> submenuListView = new ListView<MenuItem>("submenuList", menuItemList) {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 6300774999837764921L;
+			private static final long serialVersionUID = 1L;
 			int itemCount = 0;
 
 			@Override
@@ -129,20 +149,14 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 				submenuDiv.add(new AttributeModifier("id", true, new Model<String>("dropmenu" + itemCount)));
 
 				ListView<MenuItem> submenuItem = new ListView<MenuItem>("submenuItem", subMenuList) {
-					/**
-					 * 
-					 */
-					private static final long serialVersionUID = -1961867163230691751L;
+					private static final long serialVersionUID = 1L;
 
 					public void populateItem(final ListItem<MenuItem> item) {
 
 						final MenuItem subMenuItem = (MenuItem) item.getModelObject();
 
 						Link<MenuItem> link = new Link<MenuItem>("menuLink") {
-							/**
-							 * 
-							 */
-							private static final long serialVersionUID = 3662635374288288132L;
+							private static final long serialVersionUID = 1L;
 
 							@Override
 							public void onClick() {
@@ -178,19 +192,5 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 
 	public void setNumberOfMenu(int numberOfMenu) {
 		this.numberOfMenu = numberOfMenu;
-	}
-
-	@Override
-	public void renderHead(IHeaderResponse response) {
-
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("<script type=\"text/javascript\" >var downGifRelativeLocation='<img src=\"");
-		buffer.append(RequestCycle.get().urlFor(DOWN_GIF, null));
-		buffer.append("\" border=\"0\" />';</script> ");		
-		response.renderString(buffer.toString());
-		
-		response.renderJavaScriptReference(javaScriptResourceReference);
-		response.renderCSSReference(cssResourceReference);
-
 	}
 }

@@ -13,6 +13,11 @@ import com.cooldatasoft.horizontal.dropdown.multiLevelCss.MultiLevelCssMenu;
  */
 public class MultiLevelCssMenuDemo extends BasePage {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5680053249904830954L;
+
 	public MultiLevelCssMenuDemo(){
 		List<MenuItem> primaryMenuList = buildMenu();
 		//add your menu to your wicket page

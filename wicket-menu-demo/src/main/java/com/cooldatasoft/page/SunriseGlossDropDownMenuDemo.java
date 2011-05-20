@@ -9,6 +9,11 @@ import com.cooldatasoft.horizontal.dropdown.sunrisegloss.SunriseGlossDropDownMen
 
 public class SunriseGlossDropDownMenuDemo extends BasePage {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 814225190142120804L;
+
 	public SunriseGlossDropDownMenuDemo() {
 		List<MenuItem> primaryMenuList = buildMenu();
 		//add your menu to your wicket page
