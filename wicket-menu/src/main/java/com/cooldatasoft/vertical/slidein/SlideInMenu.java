@@ -65,7 +65,7 @@ public class SlideInMenu extends Panel implements IHeaderContributor {
         	if(menuItem.getDestinationType() == DestinationType.WEB_PAGE_CLASS ){
         		response.getResponse().write("sitems["+(count++)+"]=[\""+menuItem.getMenuText()+"\"," +	"\""+RequestCycle.get().urlFor(menuItem.getResponsePageClass(),null)+"\"];\n");
         	}else if(menuItem.getDestinationType() == DestinationType.WEB_PAGE_INSTANCE ){
-        		response.getResponse().write("sitems["+(count++)+"]=[\""+menuItem.getMenuText()+"\"," +	"\""+RequestCycle.get().urlFor(menuItem.getResponsePage())+"\"];\n");
+        		response.getResponse().write("sitems["+(count++)+"]=[\""+menuItem.getMenuText()+"\"," +	"\""+RequestCycle.get().urlFor(menuItem.getResponsePage().getClass(),null)+"\"];\n");
         	}else{
         		System.err.println(menuItem.getDestinationType());
         		throw new RuntimeException("This menu can only be applied to wicket web pages");
