@@ -23,6 +23,11 @@ import com.cooldatasoft.common.MenuItem;
  */
 public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3283201240996004307L;
+	
 	private ResourceReference SHORTCUTS_CSS = new CssResourceReference(MultiLevelCssMenu.class,"css/MultiLevelCssMenu.css");
 	private ResourceReference SHORTCUTS_JAVASCRIPT = new JavaScriptResourceReference(MultiLevelCssMenu.class,"js/jqueryMin.js");
 	private ResourceReference SHORTCUTS_JAVASCRIPT2 = new JavaScriptResourceReference(MultiLevelCssMenu.class,"js/MultiLevelCssMenu.js");
@@ -65,21 +70,36 @@ public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 	
 	class MultiLevelMenu extends Panel {
 
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -4114081300762247367L;
+
 		public MultiLevelMenu(String id,List<MenuItem> menuItemList) {
 			super(id);
 			if(menuItemList==null || menuItemList.size()==0) {
 				return;
 			}
-			ListView menu = buildMultiLevelMenu("menuList", menuItemList);
+			ListView<MenuItem> menu = buildMultiLevelMenu("menuList", menuItemList);
 			menu.setReuseItems(true);
 			add(menu);
 		}	
 		
-		private ListView buildMultiLevelMenu(String id,List<MenuItem> menuItemList) {
-			return new ListView(id, menuItemList) {			
-				public void populateItem(final ListItem item) {
+		private ListView<MenuItem> buildMultiLevelMenu(String id,List<MenuItem> menuItemList) {
+			return new ListView<MenuItem>(id, menuItemList) {			
+				/**
+				 * 
+				 */
+				private static final long serialVersionUID = -8479988245768999659L;
+
+				public void populateItem(final ListItem<MenuItem> item) {
 					final MenuItem menuItem = ((MenuItem) item.getModelObject());
-					Link link = new Link("menuLink") {
+					Link<MenuItem> link = new Link<MenuItem>("menuLink") {
+						/**
+						 * 
+						 */
+						private static final long serialVersionUID = 3090379600383631234L;
+
 						@Override
 						public void onClick() {
 							if (menuItem!=null ) {
@@ -110,23 +130,3 @@ public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

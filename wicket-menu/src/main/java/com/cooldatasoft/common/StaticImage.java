@@ -8,7 +8,7 @@ public class StaticImage extends WebComponent {
 
 	private static final long serialVersionUID = -3668941095544163980L;
 
-	public StaticImage(String id, IModel model) {
+	public StaticImage(String id, IModel<String> model) {
         super(id, model);
     }
 

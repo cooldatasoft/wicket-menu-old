@@ -41,6 +41,11 @@ import com.cooldatasoft.common.MenuItem;
  */
 public class SlideInMenu extends Panel implements IHeaderContributor {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1346875568311565548L;
+	
 	private final ResourceReference SHORTCUTS_JAVASCRIPT;
 	private final ResourceReference SHORTCUTS_CSS;
 	private List<MenuItem> menuItemList = null;

@@ -25,7 +25,7 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 	private static final long serialVersionUID = -2273238307940469075L;
 
 	private int numberOfMenu;
-
+	
 	private ResourceReference SHORTCUTS_JAVASCRIPT = null;
 	private ResourceReference SHORTCUTS_CSS = null;
 	public enum CSS{THEME1,THEME2,THEME3,THEME4};
@@ -71,13 +71,22 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 			SHORTCUTS_CSS = new CssResourceReference(ChromeDropDownMenu.class,"css/chrome4.css");
 		}
 		
-		ListView chromePrimaryMenuListView = new ListView("primaryMenuList", menuItemList) {
+		ListView<MenuItem> chromePrimaryMenuListView = new ListView<MenuItem>("primaryMenuList", menuItemList) {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = -7286734385469675250L;
 			int itemCount = 0;
 
-			public void populateItem(final ListItem item) {
+			public void populateItem(final ListItem<MenuItem> item) {
 				
 				final MenuItem menuItem = ((MenuItem) item.getModelObject());
-				Link link = new Link("menuLink") {
+				Link<MenuItem> link = new Link<MenuItem>("menuLink") {
+					/**
+					 * 
+					 */
+					private static final long serialVersionUID = 5670656306063413870L;
+
 					@Override
 					public void onClick() {
 						if (menuItem!=null ) {
@@ -87,7 +96,7 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 				};
 
 				// Adding submenu to menu item
-				link.add(new AttributeModifier("rel", true, new Model("dropmenu" + itemCount)));
+				link.add(new AttributeModifier("rel", true, new Model<String>("dropmenu" + itemCount)));
 				setNumberOfMenu(itemCount++);
 
 				Label linkText = new Label("linkText", menuItem.getMenuText());
@@ -99,23 +108,37 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 		chromePrimaryMenuListView.setReuseItems(true);
 		add(chromePrimaryMenuListView);
 
-		ListView submenuListView = new ListView("submenuList", menuItemList) {
+		ListView<MenuItem> submenuListView = new ListView<MenuItem>("submenuList", menuItemList) {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 6300774999837764921L;
 			int itemCount = 0;
 			@Override
-			public void populateItem(final ListItem item) {
+			public void populateItem(final ListItem<MenuItem> item) {
 				MenuItem menuItem = (MenuItem) item.getModelObject();
 				List<MenuItem> subMenuList = menuItem.getSubMenuItemList();
 					
 				
 				WebMarkupContainer submenuDiv = new WebMarkupContainer("submenuDiv");
-				submenuDiv.add(new AttributeModifier("id", true, new Model("dropmenu" + itemCount)));
+				submenuDiv.add(new AttributeModifier("id", true, new Model<String>("dropmenu" + itemCount)));
 				
-				ListView submenuItem = new ListView("submenuItem",subMenuList) {
-					public void populateItem(final ListItem item) {
+				ListView<MenuItem> submenuItem = new ListView<MenuItem>("submenuItem",subMenuList) {
+					/**
+					 * 
+					 */
+					private static final long serialVersionUID = -1961867163230691751L;
+
+					public void populateItem(final ListItem<MenuItem> item) {
 						
 						final MenuItem subMenuItem = (MenuItem) item.getModelObject();
 						
-						Link link = new Link("menuLink") {
+						Link<MenuItem> link = new Link<MenuItem>("menuLink") {
+							/**
+							 * 
+							 */
+							private static final long serialVersionUID = 3662635374288288132L;
+
 							@Override
 							public void onClick() {
 								if(subMenuItem != null ){

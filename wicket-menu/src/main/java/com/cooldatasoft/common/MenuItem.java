@@ -8,6 +8,11 @@ import org.apache.wicket.markup.html.WebPage;
 
 public class MenuItem implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1205864748955809884L;
+	
 	private int destinationType;
 	private String menuText;
 	private Class<? extends WebPage> responsePageClass;
