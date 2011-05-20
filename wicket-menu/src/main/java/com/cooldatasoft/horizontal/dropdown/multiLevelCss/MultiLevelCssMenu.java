@@ -10,12 +10,15 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
+import org.apache.wicket.request.resource.PackageResourceReference;
 import org.apache.wicket.request.resource.ResourceReference;
 
 import com.cooldatasoft.common.DestinationType;
 import com.cooldatasoft.common.MenuItem;
+import com.cooldatasoft.horizontal.dropdown.chrome.ChromeDropDownMenu;
 /**
  * http://www.dynamicdrive.com/style/csslibrary/item/jquery_multi_level_css_menu_2/
  * @author fucar
@@ -28,13 +31,16 @@ public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 	 */
 	private static final long serialVersionUID = -3283201240996004307L;
 	
-	private ResourceReference SHORTCUTS_CSS = new CssResourceReference(MultiLevelCssMenu.class,"css/MultiLevelCssMenu.css");
-	private ResourceReference SHORTCUTS_JAVASCRIPT = new JavaScriptResourceReference(MultiLevelCssMenu.class,"js/jqueryMin.js");
-	private ResourceReference SHORTCUTS_JAVASCRIPT2 = new JavaScriptResourceReference(MultiLevelCssMenu.class,"js/MultiLevelCssMenu.js");
+	private final static ResourceReference DOWN_GIF = new PackageResourceReference(MultiLevelCssMenu.class, "js/down.gif");
+	private final static ResourceReference RIGHT_GIF = new PackageResourceReference(MultiLevelCssMenu.class, "js/right.gif");
+	
+	private final static ResourceReference MENU_CSS = new CssResourceReference(MultiLevelCssMenu.class,"css/MultiLevelCssMenu.css");
+	private final static ResourceReference JQUERY_MIN_JAVASCRIPT = new JavaScriptResourceReference(MultiLevelCssMenu.class,"js/jqueryMin.js");
+	private final static ResourceReference MENU_JAVASCRIPT = new JavaScriptResourceReference(MultiLevelCssMenu.class,"js/MultiLevelCssMenu.js");
+	
 	
 	public MultiLevelCssMenu(String id, List<MenuItem> menuItemList) {
 		super(id);
-		//TODO
 		setRenderBodyOnly(true);
 		MultiLevelMenu multiLevelMenu = new MultiLevelMenu("multiLevelMenu",menuItemList);
 		multiLevelMenu.setRenderBodyOnly(true);
@@ -45,9 +51,18 @@ public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 	
 	@Override
 	public void renderHead(IHeaderResponse response) {
-		response.renderCSSReference(SHORTCUTS_CSS);
-		response.renderJavaScriptReference(SHORTCUTS_JAVASCRIPT);
-		response.renderJavaScriptReference(SHORTCUTS_JAVASCRIPT2);		 
+		
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("<script type=\"text/javascript\">");
+		buffer.append("\nvar downGifRelativeLocation='").append(RequestCycle.get().urlFor(DOWN_GIF, null)).append("';");
+		buffer.append("\nvar rightGifRelativeLocation='").append(RequestCycle.get().urlFor(RIGHT_GIF, null)).append("';");
+		buffer.append("\n</script>\n");		
+		response.renderString(buffer.toString());
+		
+		
+		response.renderJavaScriptReference(JQUERY_MIN_JAVASCRIPT);
+		response.renderJavaScriptReference(MENU_JAVASCRIPT);
+		response.renderCSSReference(MENU_CSS);
 	}
 
 	

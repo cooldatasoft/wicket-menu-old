@@ -4,8 +4,13 @@
 //* Menu avaiable at DD CSS Library: http://www.dynamicdrive.com/style/
 *********************/
 
+
 //Specify full URL to down and right arrow images (23 is padding-right to add to top level LIs with drop downs):
-var arrowimages={down:['downarrowclass', 'resources/com.cooldatasoft.horizontal.dropdown.multiLevelCss.MultiLevelCssMenu/js/down.gif', 23], right:['rightarrowclass', 'resources/com.cooldatasoft.horizontal.dropdown.multiLevelCss.MultiLevelCssMenu/js/right.gif']}
+var arrowimages={
+		down:['downarrowclass',downGifRelativeLocation, 23], 
+		right:['rightarrowclass', rightGifRelativeLocation]
+}
+
 
 var jqueryslidemenu={
 
