@@ -3,7 +3,6 @@ package com.cooldatasoft.horizontal.dropdown.chrome;
 import java.util.List;
 
 import org.apache.wicket.AttributeModifier;
-import org.apache.wicket.ResourceReference;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -12,8 +11,10 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.markup.html.resources.CompressedResourceReference;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.request.resource.CssResourceReference;
+import org.apache.wicket.request.resource.JavaScriptResourceReference;
+import org.apache.wicket.request.resource.ResourceReference;
 
 import com.cooldatasoft.common.DestinationType;
 import com.cooldatasoft.common.MenuItem;
@@ -58,16 +59,16 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 	public ChromeDropDownMenu(String id, List<MenuItem> menuItemList, CSS cssTheme ) {
 		super(id);
 		
-		SHORTCUTS_JAVASCRIPT = new CompressedResourceReference(ChromeDropDownMenu.class,"js/chrome.js");
+		SHORTCUTS_JAVASCRIPT = new JavaScriptResourceReference(ChromeDropDownMenu.class,"js/chrome.js");
 		
 		if(cssTheme == CSS.THEME1){
-			SHORTCUTS_CSS = new CompressedResourceReference(ChromeDropDownMenu.class,"css/chrome1.css");
+			SHORTCUTS_CSS = new CssResourceReference(ChromeDropDownMenu.class,"css/chrome1.css");
 		}else if(cssTheme == CSS.THEME2){
-			SHORTCUTS_CSS = new CompressedResourceReference(ChromeDropDownMenu.class,"css/chrome2.css");
+			SHORTCUTS_CSS = new CssResourceReference(ChromeDropDownMenu.class,"css/chrome2.css");
 		}else if(cssTheme == CSS.THEME3){
-			SHORTCUTS_CSS = new CompressedResourceReference(ChromeDropDownMenu.class,"css/chrome3.css");
+			SHORTCUTS_CSS = new CssResourceReference(ChromeDropDownMenu.class,"css/chrome3.css");
 		}else if(cssTheme == CSS.THEME4){
-			SHORTCUTS_CSS = new CompressedResourceReference(ChromeDropDownMenu.class,"css/chrome4.css");
+			SHORTCUTS_CSS = new CssResourceReference(ChromeDropDownMenu.class,"css/chrome4.css");
 		}
 		
 		ListView chromePrimaryMenuListView = new ListView("primaryMenuList", menuItemList) {
@@ -155,7 +156,7 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 	
 	@Override
 	public void renderHead(IHeaderResponse response) {
-        response.renderJavascriptReference(SHORTCUTS_JAVASCRIPT);
+		response.renderJavaScriptReference(SHORTCUTS_JAVASCRIPT);
         response.renderCSSReference(SHORTCUTS_CSS);
 	}
 

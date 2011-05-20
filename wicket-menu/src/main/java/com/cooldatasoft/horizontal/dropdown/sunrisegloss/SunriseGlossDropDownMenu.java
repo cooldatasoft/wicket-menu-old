@@ -9,11 +9,7 @@ package com.cooldatasoft.horizontal.dropdown.sunrisegloss;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.management.RuntimeErrorException;
-
 import org.apache.wicket.AttributeModifier;
-import org.apache.wicket.RequestCycle;
-import org.apache.wicket.ResourceReference;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -22,8 +18,11 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.markup.html.resources.CompressedResourceReference;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.request.cycle.RequestCycle;
+import org.apache.wicket.request.resource.CssResourceReference;
+import org.apache.wicket.request.resource.PackageResourceReference;
+import org.apache.wicket.request.resource.ResourceReference;
 
 import com.cooldatasoft.common.DestinationType;
 import com.cooldatasoft.common.MenuItem;
@@ -33,9 +32,9 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 	
 	private static final long serialVersionUID = 8698968844637387754L;
 	
-	private final ResourceReference CSS_PATH = new CompressedResourceReference(SunriseGlossDropDownMenu.class,"css/SunriseGloss.css");
-	private final ResourceReference bgLeft = new ResourceReference(SunriseGlossDropDownMenu.class,"images/nav-bg-l.jpg");
-	private final ResourceReference bgRight = new ResourceReference(SunriseGlossDropDownMenu.class,"images/nav-bg-r.jpg");
+	private final ResourceReference CSS_PATH = new CssResourceReference(SunriseGlossDropDownMenu.class,"css/SunriseGloss.css");
+	private final ResourceReference bgLeft = new PackageResourceReference(SunriseGlossDropDownMenu.class,"images/nav-bg-l.jpg");
+	private final ResourceReference bgRight = new PackageResourceReference(SunriseGlossDropDownMenu.class,"images/nav-bg-r.jpg");
 	
 	public void processResponse(MenuItem menuItem){
 		switch(menuItem.getDestinationType()){
@@ -60,7 +59,7 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 	public SunriseGlossDropDownMenu(String id, List<MenuItem> menuItemList) {
 		super(id);
 		
-		StaticImage bgLeftImage = new StaticImage("bgLeft", new Model( RequestCycle.get().urlFor(bgLeft).toString()));
+		StaticImage bgLeftImage = new StaticImage("bgLeft", new Model( RequestCycle.get().render(bgLeft).toString()));
 		StaticImage bgRightImage = new StaticImage("bgRight", new Model( RequestCycle.get().urlFor(bgRight).toString()));
 		
 		bgLeftImage.add(new AttributeModifier("class",true,new Model("float-left")));
