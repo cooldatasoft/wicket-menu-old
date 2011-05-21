@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>wicket-menu-demo</groupId>
 	<artifactId>wicket-menu-demo</artifactId>
-	<version>0.0.4-wicket1.5</version>
+	<version>0.0.5-SNAPSHOT-wicket1.5</version>
 	<packaging>war</packaging>
 	<name>Wicket Menu Demo</name>
 
