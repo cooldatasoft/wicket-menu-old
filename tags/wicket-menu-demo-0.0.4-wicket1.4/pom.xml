@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>wicket-menu-demo</groupId>
-	<artifactId>wicket-menu-demo</artifactId>
-	<version>0.0.4-wicket1.4</version>
+	<groupId>com.cooldatasoft</groupId>
+	<artifactId>wicket-menu-demo-wicket1.4</artifactId>
+	<version>0.0.4</version>
 	<packaging>war</packaging>
 	<name>Wicket Menu Demo</name>
 
@@ -22,7 +22,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.cooldatasoft</groupId>
-			<artifactId>wicket-menu</artifactId>
+			<artifactId>wicket-menu-wicket1.4</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
@@ -69,7 +69,7 @@
 
 			<dependency>
 				<groupId>com.cooldatasoft</groupId>
-				<artifactId>wicket-menu</artifactId>
+				<artifactId>wicket-menu-wicket1.4</artifactId>
 				<version>${project.version}</version>
 				<type>jar</type>
 				<scope>compile</scope>

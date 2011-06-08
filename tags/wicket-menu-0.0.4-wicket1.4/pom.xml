@@ -3,8 +3,8 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.cooldatasoft</groupId>
-	<artifactId>wicket-menu</artifactId>
-	<version>0.0.4-wicket1.4</version>
+	<artifactId>wicket-menu-wicket1.4</artifactId>
+	<version>0.0.4</version>
 	<packaging>jar</packaging>
 	<name>Wicket Menu</name>
 
