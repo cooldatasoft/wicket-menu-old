@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.cooldatasoft</groupId>
 	<artifactId>wicket-menu-demo-wicket1.5</artifactId>
-	<version>0.0.5</version>
+	<version>0.0.6-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>Wicket Menu Demo</name>
 
