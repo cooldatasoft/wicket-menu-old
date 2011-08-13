@@ -10,8 +10,24 @@ Pakcage : com.cooldatasoft.horizontal.dropdown.multiLevelCss.MultiLevelCssMenu
 
 Type: Multi Level Css Menu
 
+This menu requires wicket tags to be stripped.
 
+{{{
+public class WicketMenuDemoApplication extends WebApplication {
 
+	@Override
+	public Class<? extends WebPage> getHomePage() {
+		return Index.class;
+	}
+
+	@Override
+	protected void init() {
+		super.init();
+		getMarkupSettings().setStripWicketTags(true);
+	}
+	
+}
+}}}
 For a demo of the menu follow the link : 
 http://www.dynamicdrive.com/style/csslibrary/item/jquery_multi_level_css_menu_2/
 
