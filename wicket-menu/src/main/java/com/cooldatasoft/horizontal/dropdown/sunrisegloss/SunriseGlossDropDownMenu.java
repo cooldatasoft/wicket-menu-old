@@ -2,6 +2,8 @@ package com.cooldatasoft.horizontal.dropdown.sunrisegloss;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
@@ -26,6 +28,7 @@ import com.cooldatasoft.common.StaticImage;
  * @author Fatih Mehmet UCAR - fmucar@gmail.com
  *
  */
+@Slf4j
 public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributor {
 	
 	private static final long serialVersionUID = 1L;
@@ -62,11 +65,17 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 	public SunriseGlossDropDownMenu(String id, List<MenuItem> menuItemList) {
 		super(id);
 		
-		StaticImage bgLeftImage = new StaticImage("bgLeft", new Model<String>( RequestCycle.get().urlFor(BG_LEFT_IMG,null).toString()));
-		StaticImage bgRightImage = new StaticImage("bgRight", new Model<String>( RequestCycle.get().urlFor(BG_RIGHT_IMG,null).toString()));
+		String bgLeftImgPath = RequestCycle.get().urlFor(BG_LEFT_IMG,null).toString();
+		String bgRightImgPath =  RequestCycle.get().urlFor(BG_RIGHT_IMG,null).toString();
 		
-		bgLeftImage.add(new AttributeModifier("class",true,new Model<String>("float-left")));
-		bgRightImage.add(new AttributeModifier("class",true,new Model<String>("float-right")));
+		log.debug("bgLeftImg : {} ",bgLeftImgPath);
+		log.debug("bgRightImg : {} ",bgRightImgPath);
+		
+		StaticImage bgLeftImage = new StaticImage("bgLeft", new Model<String>( bgLeftImgPath));
+		StaticImage bgRightImage = new StaticImage("bgRight", new Model<String>( bgRightImgPath));
+		
+		bgLeftImage.add(new AttributeModifier("class",new Model<String>("float-left")));
+		bgRightImage.add(new AttributeModifier("class",new Model<String>("float-right")));
 		   
 		add(bgLeftImage);
 		add(bgRightImage);
@@ -90,10 +99,10 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 					}
 				};
 				Label seperator = new Label("menuSeperator");
-				seperator.add(new AttributeModifier("class",true,new Model<String>("divider divider-vert")));
+				seperator.add(new AttributeModifier("class",new Model<String>("divider divider-vert")));
 				
 				Label linkText = new Label("linkText");
-				link.add(new AttributeModifier("class",true,new Model<String>("item-primary")));
+				link.add(new AttributeModifier("class",new Model<String>("item-primary")));
 				
 				if(menuItem!=null && menuItem.getMenuText()!=null && !menuItem.isSeperator()){
 					linkText.setDefaultModel(new Model<String>(menuItem.getMenuText()));
@@ -130,9 +139,9 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 						};
 						Label subMenuSeperatorOrSecondaryTitle = new Label("subMenuSeperatorOrSecondaryTitle");
 						if(subMenuItem.isSeperator()){						
-							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class",true,new Model<String>("divider divider-horiz")));
+							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class",new Model<String>("divider divider-horiz")));
 						}else if(subMenuItem.isSubmenuTitle()){
-							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class",true,new Model<String>("item-secondary-title")));
+							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class",new Model<String>("item-secondary-title")));
 							subMenuSeperatorOrSecondaryTitle.setDefaultModel(new Model<String>(subMenuItem.getMenuText()));
 						}						
 						Label subMenuLinkText = new Label("subMenuLinkText");						
