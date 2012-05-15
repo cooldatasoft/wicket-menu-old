@@ -1,28 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+	<parent>
+		<artifactId>wicket-menu-parent</artifactId>
+		<groupId>com.cooldatasoft</groupId>
+		<version>0.0.7-SNAPSHOT</version>
+	</parent>
+	
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.cooldatasoft</groupId>
-	<artifactId>wicket-menu-demo-wicket1.5</artifactId>
-	<version>0.0.6-SNAPSHOT</version>
+	<artifactId>wicket-menu-demo</artifactId>
 	<packaging>war</packaging>
 	<name>Wicket Menu Demo</name>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.compiler.version>1.5</java.compiler.version>
-		<log4j.version>1.2.16</log4j.version>
-		<slf4j.version>1.6.1</slf4j.version>
-		<junit.version>4.8.2</junit.version>
-		<wicket.version>1.5-RC4.2</wicket.version>
-	</properties>
-
 
 
 	<dependencies>
 		<dependency>
 			<groupId>com.cooldatasoft</groupId>
-			<artifactId>wicket-menu-wicket1.5</artifactId>
+			<artifactId>wicket-menu</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
@@ -30,17 +24,9 @@
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-		</dependency>
-		
+
 		<!-- testing dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -50,94 +36,12 @@
 
 		<!-- Provided dependencies -->
 		<dependency>
-			<groupId>jetty</groupId>
-			<artifactId>jetty</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>jetty</groupId>
-			<artifactId>jetty-util</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 		</dependency>
 	</dependencies>
 
 
-	<dependencyManagement>
-		<dependencies>
-
-			<dependency>
-				<groupId>com.cooldatasoft</groupId>
-				<artifactId>wicket-menu-wicket1.5</artifactId>
-				<version>${project.version}</version>
-				<type>jar</type>
-				<scope>compile</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>org.apache.wicket</groupId>
-				<artifactId>wicket-core</artifactId>
-				<version>${wicket.version}</version>
-				<type>jar</type>
-				<scope>compile</scope>
-			</dependency>
-
-			<!-- Logging dependencies -->
-			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>${log4j.version}</version>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<version>${slf4j.version}</version>
-				<type>jar</type>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
-				<type>jar</type>
-				<scope>compile</scope>
-			</dependency>
-			<!-- Testing dependencies -->
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>${junit.version}</version>
-				<type>jar</type>
-				<scope>test</scope>
-			</dependency>
-
-
-			<!-- Provided dependencies -->
-			<dependency>
-				<groupId>jetty</groupId>
-				<artifactId>jetty</artifactId>
-				<version>6.0.2</version>
-				<type>jar</type>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>jetty</groupId>
-				<artifactId>jetty-util</artifactId>
-				<version>6.0.2</version>
-				<type>jar</type>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>servlet-api</artifactId>
-				<version>2.5</version>
-				<type>jar</type>
-				<scope>provided</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<build>
 		<pluginManagement>
