@@ -11,39 +11,17 @@
 	<artifactId>wicket-menu</artifactId>
 	<packaging>jar</packaging>
 	<name>Wicket Menu</name>
-
-
-
 	<description>Wicket-Menu</description>
-	<url>http://code.google.com/p/wicket-menu/</url>
 
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
-	
-
-	
-	<scm>
-		<connection>scm:svn:http://wicket-menu.googlecode.com/svn/trunk/</connection>
-		<developerConnection>scm:svn:https:///wicket-menu.googlecode.com/svn/trunk/</developerConnection>
-		<url>http://wicket-menu.googlecode.com/svn/trunk/</url>
-	</scm>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket-core</artifactId>
 		</dependency>
-		<!-- logging dependencies -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
-		<!-- Testing dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -53,9 +31,6 @@
 			<artifactId>lombok</artifactId>
 		</dependency>
 	</dependencies>
-
-	
-
 
 	<build>
 		<pluginManagement>
