@@ -19,3 +19,24 @@ http://www.cooldatasoft.com/wicket-menu-demo/
 
 
 ==Any recommendation or wish is very welcome.==
+
+{{{
+<dependency>
+  <groupId>com.cooldatasoft</groupId>
+  <artifactId>wicket-menu</artifactId>
+  <version>0.0.7</version>
+  <type>jar</type>
+  <scope>compile</scope>
+</dependency>
+
+<repositories>
+  <repository>
+    <id>wicket-menu-release</id>
+    <url>http://wicket-menu.googlecode.com/svn/maven/repo</url>
+  </repository>
+  <repository>
+    <id>wicket-menu-snapshot</id>
+    <url>http://wicket-menu.googlecode.com/svn/maven/snapshot-repo</url>
+  </repository>
+</repositories>
+}}}
