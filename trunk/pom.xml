@@ -27,11 +27,11 @@
 	</properties>
 
 
-	<url>http://wicket-menu.googlecode.com/svn/trunk/</url>
+	<url>https://wicket-menu.googlecode.com/svn/trunk/</url>
 
 	<scm>
-		<url>http://wicket-menu.googlecode.com/svn/trunk/</url>
-		<connection>scm:svn:http://wicket-menu.googlecode.com/svn/trunk/</connection>
+		<url>https://wicket-menu.googlecode.com/svn/trunk/</url>
+		<connection>scm:svn:https://wicket-menu.googlecode.com/svn/trunk/</connection>
 		<developerConnection>https://wicket-menu.googlecode.com/svn/trunk/</developerConnection>
 	</scm>
 	
@@ -87,13 +87,6 @@
 				<scope>test</scope>
 			</dependency>
 
-			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>servlet-api</artifactId>
-				<version>2.5</version>
-				<type>jar</type>
-				<scope>provided</scope>
-			</dependency>
 
 			<dependency>
 				<groupId>org.projectlombok</groupId>
