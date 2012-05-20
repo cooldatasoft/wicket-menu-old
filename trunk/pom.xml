@@ -1,6 +1,7 @@
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.cooldatasoft</groupId>
@@ -111,13 +112,7 @@
 				</property>
 			</activation>
 			<build>
-				<extensions>
-					<extension>
-						<groupId>org.apache.maven.wagon</groupId>
-						<artifactId>wagon-ssh-external</artifactId>
-						<version>1.0</version>
-					</extension>
-				</extensions>
+
 
 				<plugins>
 					<plugin>
@@ -135,10 +130,21 @@
 						</executions>
 					</plugin>
 				</plugins>
+
 			</build>
 		</profile>
 	</profiles>
 
+
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.jvnet.wagon-svn</groupId>
+				<artifactId>wagon-svn</artifactId>
+				<version>1.12</version>
+			</extension>
+		</extensions>
+	</build>
 	<modules>
 		<module>wicket-menu</module>
 		<module>wicket-menu-demo</module>
