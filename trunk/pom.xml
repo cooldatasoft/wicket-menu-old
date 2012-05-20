@@ -28,13 +28,18 @@
 	</properties>
 
 
-	<url>https://wicket-menu.googlecode.com/svn/trunk/</url>
+
 
 	<scm>
-		<url>https://wicket-menu.googlecode.com/svn/trunk/</url>
-		<connection>scm:svn:https://wicket-menu.googlecode.com/svn/trunk/</connection>
-		<developerConnection>https://wicket-menu.googlecode.com/svn/trunk/</developerConnection>
+		<url>https://wicket-menu.googlecode.com/svn/trunk</url>
+		<connection>scm:svn:https://wicket-menu.googlecode.com/svn/trunk</connection>
+		<developerConnection>scm:svn:https://wicket-menu.googlecode.com/svn/trunk</developerConnection>
 	</scm>
+
+	<issueManagement>
+		<system>Google Code</system>
+		<url>http://code.google.com/p/wicket-menu/issues</url>
+	</issueManagement>
 
 
 	<developers>
@@ -102,6 +107,7 @@
 
 	<!-- mvn clean deploy -Dgpg.passphrase=yourpassphrase -->
 	<!-- mvn release:perform -Darguments=-Dgpg.passphrase=PASSPHRASE -->
+	<!-- 
 	<profiles>
 		<profile>
 			<id>release-sign-artifacts</id>
@@ -134,17 +140,9 @@
 			</build>
 		</profile>
 	</profiles>
+	-->
 
 
-	<build>
-		<extensions>
-			<extension>
-				<groupId>org.jvnet.wagon-svn</groupId>
-				<artifactId>wagon-svn</artifactId>
-				<version>1.12</version>
-			</extension>
-		</extensions>
-	</build>
 	<modules>
 		<module>wicket-menu</module>
 		<module>wicket-menu-demo</module>
