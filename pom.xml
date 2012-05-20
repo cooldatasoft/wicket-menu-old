@@ -34,7 +34,7 @@
 		<connection>scm:svn:https://wicket-menu.googlecode.com/svn/trunk/</connection>
 		<developerConnection>https://wicket-menu.googlecode.com/svn/trunk/</developerConnection>
 	</scm>
-	
+
 
 	<developers>
 		<developer>
@@ -111,6 +111,14 @@
 				</property>
 			</activation>
 			<build>
+				<extensions>
+					<extension>
+						<groupId>org.apache.maven.wagon</groupId>
+						<artifactId>wagon-ssh-external</artifactId>
+						<version>1.0</version>
+					</extension>
+				</extensions>
+
 				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
@@ -130,7 +138,7 @@
 			</build>
 		</profile>
 	</profiles>
-	
+
 	<modules>
 		<module>wicket-menu</module>
 		<module>wicket-menu-demo</module>
