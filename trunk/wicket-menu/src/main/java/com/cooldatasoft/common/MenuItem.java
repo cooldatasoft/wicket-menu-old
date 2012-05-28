@@ -46,17 +46,11 @@ public class MenuItem implements Serializable {
 	}
 
 	public MenuItem(Link<MenuItem> ajaxLink) {
-		if("menuLink".equals(ajaxLink.getId())){
-			throw new RuntimeException("MenuLink needs to have menuLink as wicket id!");
-		}
 		setAjaxLink(ajaxLink);
 		setDestinationType(DestinationType.AJAX_TARGET);
 	}
 
 	public MenuItem(String menuText,Link<MenuItem> ajaxLink) {
-		if("menuLink".equals(ajaxLink.getId())){
-			throw new RuntimeException("MenuLink needs to have menuLink as wicket id!");
-		}
 		setMenuText(menuText);
 		setAjaxLink(ajaxLink);
 		setDestinationType(DestinationType.AJAX_TARGET);
