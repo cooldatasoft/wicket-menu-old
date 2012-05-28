@@ -16,6 +16,7 @@ public class Index extends BasePage {
 		add(getDemoPageLink("chromeDropDownMenuLink",ChromeDropDownMenuDemo.class));
 		add(getDemoPageLink("slideInMenuLink",SlideInMenuDemo.class));
 		add(getDemoPageLink("multiLevelCssMenuLink",MultiLevelCssMenuDemo.class));
+		add(getDemoPageLink("sunriseGlossDropDownMenuAjaxLink",SunriseGlossDropDownMenuDemoAjax.class));
 	}
 	
 	private <T extends BasePage> Link<T> getDemoPageLink(String wicketId, final Class<T> demoPage) {
