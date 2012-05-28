@@ -106,6 +106,9 @@ public class SunriseGlossDropDownMenu extends Panel implements
 				Link<MenuItem> link = null;
 				
 				if(DestinationType.AJAX_TARGET == menuItem.getDestinationType()){
+					if("menuLink".equals(menuItem.getAjaxLink().getId())){
+						throw new RuntimeException("MenuLink needs to have menuLink as wicket id!");
+					}
 					link = menuItem.getAjaxLink();
 				}else{
 					link = new Link<MenuItem>("menuLink") {
@@ -156,17 +159,29 @@ public class SunriseGlossDropDownMenu extends Panel implements
 						final MenuItem subMenuItem = (MenuItem) item
 								.getModelObject();
 
-						Link<MenuItem> subMenuLink = new Link<MenuItem>(
-								"subMenuLink") {
-							private static final long serialVersionUID = 1L;
-
-							@Override
-							public void onClick() {
-								if (subMenuItem != null) {
-									processResponse(subMenuItem);
-								}
+						Link<MenuItem> subMenuLink = null;
+						
+						if(DestinationType.AJAX_TARGET == menuItem.getDestinationType()){
+							if(!"subMenuLink".equals(menuItem.getAjaxLink().getId())){
+								throw new RuntimeException("Needs to have id as subMenuLink");
 							}
-						};
+							subMenuLink = menuItem.getAjaxLink();
+						}else{
+							subMenuLink = new Link<MenuItem>(
+									"subMenuLink") {
+								private static final long serialVersionUID = 1L;
+
+								@Override
+								public void onClick() {
+									if (subMenuItem != null) {
+										processResponse(subMenuItem);
+									}
+								}
+							};
+						}
+						
+						
+						
 						Label subMenuSeperatorOrSecondaryTitle = new Label(
 								"subMenuSeperatorOrSecondaryTitle");
 						if (subMenuItem.isSeperator()) {
