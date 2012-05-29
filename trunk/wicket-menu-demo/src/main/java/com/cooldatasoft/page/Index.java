@@ -3,6 +3,7 @@ package com.cooldatasoft.page;
 import org.apache.wicket.markup.html.link.Link;
 
 import com.cooldatasoft.app.BasePage;
+import com.cooldatasoft.page.ajax.SunriseGlossDropDownMenuDemoAjax;
 
 public class Index extends BasePage {
 
