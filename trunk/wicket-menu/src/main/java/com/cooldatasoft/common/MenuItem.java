@@ -30,7 +30,7 @@ public class MenuItem implements Serializable {
 	private Class<? extends WebPage> responsePageClass;
 	private WebPage responsePage;
 	private String externalLink;
-	private Link<MenuItem> ajaxLink;
+	private Link<Void> ajaxLink;
 
 	private DestinationType destinationType;
 	// submenu list
@@ -45,12 +45,12 @@ public class MenuItem implements Serializable {
 		setDestinationType(DestinationType.NONE);
 	}
 
-	public MenuItem(Link<MenuItem> ajaxLink) {
+	public MenuItem(Link<Void> ajaxLink) {
 		setAjaxLink(ajaxLink);
 		setDestinationType(DestinationType.AJAX_TARGET);
 	}
 
-	public MenuItem(String menuText,Link<MenuItem> ajaxLink) {
+	public MenuItem(String menuText,Link<Void> ajaxLink) {
 		setMenuText(menuText);
 		setAjaxLink(ajaxLink);
 		setDestinationType(DestinationType.AJAX_TARGET);
@@ -59,7 +59,7 @@ public class MenuItem implements Serializable {
 	public MenuItem(final Component... componentsToUpdate) {
 
 		// TODO id needs to be on html
-		setAjaxLink(new AjaxFallbackLink<MenuItem>("menuLink") {
+		setAjaxLink(new AjaxFallbackLink<Void>("menuLink") {
 			private static final long serialVersionUID = 1L;
 
 			@Override

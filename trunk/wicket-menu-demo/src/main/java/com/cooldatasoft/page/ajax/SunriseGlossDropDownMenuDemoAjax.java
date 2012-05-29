@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -14,6 +16,7 @@ import com.cooldatasoft.common.MenuItem;
 import com.cooldatasoft.horizontal.dropdown.sunrisegloss.SunriseGlossDropDownMenu;
 import com.cooldatasoft.page.Index;
 
+@Slf4j
 public class SunriseGlossDropDownMenuDemoAjax extends BasePage {
 
 	/**
@@ -24,7 +27,8 @@ public class SunriseGlossDropDownMenuDemoAjax extends BasePage {
 	WebMarkupContainer ajaxPanel; 
 		
 	public SunriseGlossDropDownMenuDemoAjax() {
-		ajaxPanel = new WebMarkupContainer("content",new Model<Serializable>());
+		
+		ajaxPanel = new WebMarkupContainer("content");
 		ajaxPanel.setOutputMarkupId(true);
 		ajaxPanel.setOutputMarkupPlaceholderTag(true);
 		
@@ -32,6 +36,7 @@ public class SunriseGlossDropDownMenuDemoAjax extends BasePage {
 		//add your menu to your wicket page
 		add(new SunriseGlossDropDownMenu("sunriseGlossMenu", primaryMenuList));
 		add(ajaxPanel);
+		log.info("Ajax page loaded");
 	}
 
 	/**
@@ -41,24 +46,46 @@ public class SunriseGlossDropDownMenuDemoAjax extends BasePage {
 	private List<MenuItem> buildMenu() {
 		
 		AjaxFallbackLink<Void> ajaxFallbackLink = new AjaxFallbackLink<Void>("subMenuLink"){
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void onClick(AjaxRequestTarget target) {
-				add(new SamplePanel1("content"));				
+				SamplePanel1 samplePanel1 = new SamplePanel1("content");
+				samplePanel1.setOutputMarkupId(true);
+				samplePanel1.setOutputMarkupPlaceholderTag(true);
+				ajaxPanel.replaceWith(samplePanel1);
+				ajaxPanel = samplePanel1;
 				target.add(ajaxPanel);
+				log.info("Sample1 ajax executed");
 			}			
 		};
 		
 		AjaxFallbackLink<Void> ajaxFallbackLink2 = new AjaxFallbackLink<Void>("subMenuLink"){
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void onClick(AjaxRequestTarget target) {
-				add(new SamplePanel2("content"));				
+				SamplePanel2 samplePanel2 = new SamplePanel2("content");
+				//set below 2 to make sure subsequent ajax calls work properly
+				samplePanel2.setOutputMarkupId(true);
+				samplePanel2.setOutputMarkupPlaceholderTag(true);
+				//replace the existing panel with the new one
+				ajaxPanel.replaceWith(samplePanel2);
+				//you must assign reference to ajaxPanel again to make sure subsequent ajax calls work properly
+				ajaxPanel = samplePanel2;
 				target.add(ajaxPanel);
+				log.info("Sample2 ajax executed");
 			}			
 		};
 		
 		//Define Primary Menu items (menuText,destinationWebPage)		
 		MenuItem primaryMenu1 = new MenuItem("MENU 1");
-		MenuItem primaryMenu2 = new MenuItem("MeNu 2");
 		
 		//Define submenu items
 			MenuItem subMenu1 = new MenuItem("Ajax Sample page 1", ajaxFallbackLink);
@@ -81,7 +108,6 @@ public class SunriseGlossDropDownMenuDemoAjax extends BasePage {
 		//Create a List which contains the primary menu items in it.	
 		List<MenuItem> primaryMenuList = new ArrayList<MenuItem>();
 		primaryMenuList.add(primaryMenu1);
-		primaryMenuList.add(primaryMenu2);
 		
 		return primaryMenuList;
 	}

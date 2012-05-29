@@ -103,15 +103,15 @@ public class SunriseGlossDropDownMenu extends Panel implements
 			protected void populateItem(ListItem<MenuItem> item) {
 				final MenuItem menuItem = (MenuItem) item.getModelObject();
 
-				Link<MenuItem> link = null;
-				
+				Link<Void> link = null;
+				log.info("Menu : {} , Type : {} ", menuItem.getMenuText(), menuItem.getDestinationType());
 				if(DestinationType.AJAX_TARGET == menuItem.getDestinationType()){
 					if("menuLink".equals(menuItem.getAjaxLink().getId())){
 						throw new RuntimeException("MenuLink needs to have menuLink as wicket id!");
 					}
 					link = menuItem.getAjaxLink();
 				}else{
-					link = new Link<MenuItem>("menuLink") {
+					link = new Link<Void>("menuLink") {
 						private static final long serialVersionUID = 1L;
 						@Override
 						public void onClick() {
@@ -159,15 +159,15 @@ public class SunriseGlossDropDownMenu extends Panel implements
 						final MenuItem subMenuItem = (MenuItem) item
 								.getModelObject();
 
-						Link<MenuItem> subMenuLink = null;
-						
-						if(DestinationType.AJAX_TARGET == menuItem.getDestinationType()){
-							if(!"subMenuLink".equals(menuItem.getAjaxLink().getId())){
+						Link<Void> subMenuLink = null;
+						log.info("Submenu : {} , Type : {} ",subMenuItem.getMenuText(),subMenuItem.getDestinationType());
+						if(DestinationType.AJAX_TARGET == subMenuItem.getDestinationType()){
+							if(!"subMenuLink".equals(subMenuItem.getAjaxLink().getId())){
 								throw new RuntimeException("Needs to have id as subMenuLink");
 							}
-							subMenuLink = menuItem.getAjaxLink();
+							subMenuLink = subMenuItem.getAjaxLink();
 						}else{
-							subMenuLink = new Link<MenuItem>(
+							subMenuLink = new Link<Void>(
 									"subMenuLink") {
 								private static final long serialVersionUID = 1L;
 
