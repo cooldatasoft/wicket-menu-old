@@ -8,7 +8,7 @@ public class SamplePanel2 extends Panel {
 	public SamplePanel2(String id) {
 		super(id);
 		
-		add(new Label("label","Second panel"));
+		add(new Label("label","Second panel -  this is the second panel which is replaced using ajax"));
 	}
 
 }

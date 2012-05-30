@@ -1,6 +1,5 @@
 package com.cooldatasoft.page.ajax;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxFallbackLink;
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.model.Model;
 
 import com.cooldatasoft.app.BasePage;
 import com.cooldatasoft.common.MenuItem;
