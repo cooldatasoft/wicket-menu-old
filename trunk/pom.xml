@@ -1,12 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.cooldatasoft</groupId>
 	<artifactId>wicket-menu-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>0.0.8-SNAPSHOT</version>
+	<version>0.0.8</version>
 	<name>Wicket Menu</name>
 	<description>Wicket Menu</description>
 
@@ -26,9 +25,9 @@
 
 
 	<scm>
-		<url>https://wicket-menu.googlecode.com/svn/trunk</url>
-		<connection>scm:svn:https://wicket-menu.googlecode.com/svn/trunk</connection>
-		<developerConnection>scm:svn:https://wicket-menu.googlecode.com/svn/trunk</developerConnection>
+		<url>https://wicket-menu.googlecode.com/svn/tags/wicket-menu-parent-0.0.8</url>
+		<connection>scm:svn:https://wicket-menu.googlecode.com/svn/tags/wicket-menu-parent-0.0.8</connection>
+		<developerConnection>scm:svn:https://wicket-menu.googlecode.com/svn/tags/wicket-menu-parent-0.0.8</developerConnection>
 	</scm>
 
 	<issueManagement>
