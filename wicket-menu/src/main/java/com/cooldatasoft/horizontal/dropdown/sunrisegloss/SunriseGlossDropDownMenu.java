@@ -1,11 +1,13 @@
 package com.cooldatasoft.horizontal.dropdown.sunrisegloss;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import lombok.extern.slf4j.Slf4j;
 
 import org.apache.wicket.AttributeModifier;
+import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -31,17 +33,16 @@ import com.cooldatasoft.common.StaticImage;
  * 
  */
 @Slf4j
-public class SunriseGlossDropDownMenu extends Panel implements
-		IHeaderContributor {
+public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributor {
 
 	private static final long serialVersionUID = 1L;
 
-	private final static ResourceReference CSS_PATH = new CssResourceReference(
-			SunriseGlossDropDownMenu.class, "css/SunriseGloss.css");
-	private final static ResourceReference BG_LEFT_IMG = new PackageResourceReference(
-			SunriseGlossDropDownMenu.class, "images/nav-bg-l.jpg");
-	private final static ResourceReference BG_RIGHT_IMG = new PackageResourceReference(
-			SunriseGlossDropDownMenu.class, "images/nav-bg-r.jpg");
+	private final static ResourceReference CSS_PATH = new CssResourceReference(SunriseGlossDropDownMenu.class,
+			"css/SunriseGloss.css");
+	private final static ResourceReference BG_LEFT_IMG = new PackageResourceReference(SunriseGlossDropDownMenu.class,
+			"images/nav-bg-l.jpg");
+	private final static ResourceReference BG_RIGHT_IMG = new PackageResourceReference(SunriseGlossDropDownMenu.class,
+			"images/nav-bg-r.jpg");
 
 	@Override
 	public void renderHead(IHeaderResponse container) {
@@ -74,29 +75,22 @@ public class SunriseGlossDropDownMenu extends Panel implements
 	public SunriseGlossDropDownMenu(String id, List<MenuItem> menuItemList) {
 		super(id);
 
-		String bgLeftImgPath = RequestCycle.get().urlFor(BG_LEFT_IMG, null)
-				.toString();
-		String bgRightImgPath = RequestCycle.get().urlFor(BG_RIGHT_IMG, null)
-				.toString();
+		String bgLeftImgPath = RequestCycle.get().urlFor(BG_LEFT_IMG, null).toString();
+		String bgRightImgPath = RequestCycle.get().urlFor(BG_RIGHT_IMG, null).toString();
 
 		log.debug("bgLeftImg : {} ", bgLeftImgPath);
 		log.debug("bgRightImg : {} ", bgRightImgPath);
 
-		StaticImage bgLeftImage = new StaticImage("bgLeft", new Model<String>(
-				bgLeftImgPath));
-		StaticImage bgRightImage = new StaticImage("bgRight",
-				new Model<String>(bgRightImgPath));
+		StaticImage bgLeftImage = new StaticImage("bgLeft", new Model<String>(bgLeftImgPath));
+		StaticImage bgRightImage = new StaticImage("bgRight", new Model<String>(bgRightImgPath));
 
-		bgLeftImage.add(new AttributeModifier("class", new Model<String>(
-				"float-left")));
-		bgRightImage.add(new AttributeModifier("class", new Model<String>(
-				"float-right")));
+		bgLeftImage.add(new AttributeModifier("class", new Model<String>("float-left")));
+		bgRightImage.add(new AttributeModifier("class", new Model<String>("float-right")));
 
 		add(bgLeftImage);
 		add(bgRightImage);
 
-		ListView<MenuItem> primaryMenuListView = new ListView<MenuItem>(
-				"menuItem", menuItemList) {
+		ListView<MenuItem> primaryMenuListView = new ListView<MenuItem>("menuItem", menuItemList) {
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -105,14 +99,15 @@ public class SunriseGlossDropDownMenu extends Panel implements
 
 				Link<Void> link = null;
 				log.info("Menu : {} , Type : {} ", menuItem.getMenuText(), menuItem.getDestinationType());
-				if(DestinationType.AJAX_TARGET == menuItem.getDestinationType()){
-					if("menuLink".equals(menuItem.getAjaxLink().getId())){
+				if (DestinationType.AJAX_TARGET == menuItem.getDestinationType()) {
+					if ("menuLink".equals(menuItem.getAjaxLink().getId())) {
 						throw new RuntimeException("MenuLink needs to have menuLink as wicket id!");
 					}
 					link = menuItem.getAjaxLink();
-				}else{
+				} else {
 					link = new Link<Void>("menuLink") {
 						private static final long serialVersionUID = 1L;
+
 						@Override
 						public void onClick() {
 							if (menuItem != null) {
@@ -121,20 +116,15 @@ public class SunriseGlossDropDownMenu extends Panel implements
 						}
 					};
 				}
-				
-				
+
 				Label seperator = new Label("menuSeperator");
-				seperator.add(new AttributeModifier("class", new Model<String>(
-						"divider divider-vert")));
+				seperator.add(new AttributeModifier("class", new Model<String>("divider divider-vert")));
 
 				Label linkText = new Label("linkText");
-				link.add(new AttributeModifier("class", new Model<String>(
-						"item-primary")));
+				link.add(new AttributeModifier("class", new Model<String>("item-primary")));
 
-				if (menuItem != null && menuItem.getMenuText() != null
-						&& !menuItem.isSeperator()) {
-					linkText.setDefaultModel(new Model<String>(menuItem
-							.getMenuText()));
+				if (menuItem != null && menuItem.getMenuText() != null && !menuItem.isSeperator()) {
+					linkText.setDefaultModel(new Model<String>(menuItem.getMenuText()));
 					linkText.setRenderBodyOnly(true);
 				}
 				link.add(linkText);
@@ -144,31 +134,27 @@ public class SunriseGlossDropDownMenu extends Panel implements
 					seperator.setVisible(false);
 				}
 
-				WebMarkupContainer subMenuListContainer = new WebMarkupContainer(
-						"subMenuListContainer");
+				WebMarkupContainer subMenuListContainer = new WebMarkupContainer("subMenuListContainer");
 				List<MenuItem> subMenuList = new ArrayList<MenuItem>();
 				if (menuItem.getSubMenuItemList() != null) {
 					subMenuList = menuItem.getSubMenuItemList();
 				}
-				ListView<MenuItem> subMenuListView = new ListView<MenuItem>(
-						"subMenuItem", subMenuList) {
+				ListView<MenuItem> subMenuListView = new ListView<MenuItem>("subMenuItem", subMenuList) {
 					private static final long serialVersionUID = 1L;
 
 					@Override
 					protected void populateItem(ListItem<MenuItem> item) {
-						final MenuItem subMenuItem = (MenuItem) item
-								.getModelObject();
+						final MenuItem subMenuItem = (MenuItem) item.getModelObject();
 
 						Link<Void> subMenuLink = null;
-						log.info("Submenu : {} , Type : {} ",subMenuItem.getMenuText(),subMenuItem.getDestinationType());
-						if(DestinationType.AJAX_TARGET == subMenuItem.getDestinationType()){
-							if(!"subMenuLink".equals(subMenuItem.getAjaxLink().getId())){
+						log.info("Submenu : {} , Type : {} ", subMenuItem.getMenuText(), subMenuItem.getDestinationType());
+						if (DestinationType.AJAX_TARGET == subMenuItem.getDestinationType()) {
+							if (!"subMenuLink".equals(subMenuItem.getAjaxLink().getId())) {
 								throw new RuntimeException("Needs to have id as subMenuLink");
 							}
 							subMenuLink = subMenuItem.getAjaxLink();
-						}else{
-							subMenuLink = new Link<Void>(
-									"subMenuLink") {
+						} else {
+							subMenuLink = new Link<Void>("subMenuLink") {
 								private static final long serialVersionUID = 1L;
 
 								@Override
@@ -179,48 +165,50 @@ public class SunriseGlossDropDownMenu extends Panel implements
 								}
 							};
 						}
-						
-						
-						
-						Label subMenuSeperatorOrSecondaryTitle = new Label(
-								"subMenuSeperatorOrSecondaryTitle");
+
+						Label subMenuSeperatorOrSecondaryTitle = new Label("subMenuSeperatorOrSecondaryTitle");
+
 						if (subMenuItem.isSeperator()) {
-							subMenuSeperatorOrSecondaryTitle
-									.add(new AttributeModifier("class",
-											new Model<String>(
-													"divider divider-horiz")));
+							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class", new Model<String>(
+									"divider divider-horiz")));
 						} else if (subMenuItem.isSubmenuTitle()) {
-							subMenuSeperatorOrSecondaryTitle
-									.add(new AttributeModifier("class",
-											new Model<String>(
-													"item-secondary-title")));
-							subMenuSeperatorOrSecondaryTitle
-									.setDefaultModel(new Model<String>(
-											subMenuItem.getMenuText()));
+							subMenuSeperatorOrSecondaryTitle.add(new AttributeModifier("class", new Model<String>(
+									"item-secondary-title")));
+							subMenuSeperatorOrSecondaryTitle.setDefaultModel(new Model<String>(subMenuItem.getMenuText()));
 						}
+
 						Label subMenuLinkText = new Label("subMenuLinkText");
-						if (subMenuItem != null
-								&& subMenuItem.getMenuText() != null
-								&& !subMenuItem.isSeperator()) {
-							subMenuLinkText.setDefaultModel(new Model<String>(
-									subMenuItem.getMenuText()));
+						if (subMenuItem != null && subMenuItem.getMenuText() != null && !subMenuItem.isSeperator()) {
+							subMenuLinkText.setDefaultModel(new Model<String>(subMenuItem.getMenuText()));
 							subMenuLinkText.setRenderBodyOnly(true);
 						}
-						subMenuLink.add(subMenuLinkText);
-						if (subMenuItem.isSeperator()
-								|| subMenuItem.isSubmenuTitle()) {
+
+						Iterator<Component> iterator = subMenuLink.iterator();
+						boolean found = false;
+						while (iterator.hasNext()) {
+							Component next = iterator.next();
+							if (subMenuLinkText.getId().equals(next.getId())) {
+								found = true;
+								break;
+							}
+						}
+						if (!found) {
+							subMenuLink.add(subMenuLinkText);
+						}
+
+						if (subMenuItem.isSeperator() || subMenuItem.isSubmenuTitle()) {
 							subMenuLink.setVisible(false);
 						} else {
 							subMenuSeperatorOrSecondaryTitle.setVisible(false);
 						}
+
 						item.add(subMenuLink);
 						item.add(subMenuSeperatorOrSecondaryTitle);
 						item.add(subMenuSeperatorOrSecondaryTitle);
 					}
 				};
 				subMenuListContainer.add(subMenuListView);
-				if (menuItem != null && menuItem.getSubMenuItemList() != null
-						&& menuItem.getSubMenuItemList().size() == 0) {
+				if (menuItem != null && menuItem.getSubMenuItemList() != null && menuItem.getSubMenuItemList().size() == 0) {
 					subMenuListContainer.setVisible(false);
 				}
 				item.add(link);
@@ -228,6 +216,7 @@ public class SunriseGlossDropDownMenu extends Panel implements
 				item.add(subMenuListContainer);
 			}
 		};
+		// primaryMenuListView.setReuseItems(true);
 		add(primaryMenuListView);
 	}
 }

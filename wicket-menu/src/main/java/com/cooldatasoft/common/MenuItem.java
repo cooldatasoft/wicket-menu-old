@@ -50,12 +50,12 @@ public class MenuItem implements Serializable {
 		setDestinationType(DestinationType.AJAX_TARGET);
 	}
 
-	public MenuItem(String menuText,Link<Void> ajaxLink) {
+	public MenuItem(String menuText, Link<Void> ajaxLink) {
 		setMenuText(menuText);
 		setAjaxLink(ajaxLink);
 		setDestinationType(DestinationType.AJAX_TARGET);
 	}
-	
+
 	public MenuItem(final Component... componentsToUpdate) {
 
 		// TODO id needs to be on html
@@ -83,24 +83,20 @@ public class MenuItem implements Serializable {
 		setDestinationType(DestinationType.WEB_PAGE_INSTANCE);
 	}
 
-	public MenuItem(String menuText,
-			Class<? extends WebPage> destinationPageClass) {
+	public MenuItem(String menuText, Class<? extends WebPage> destinationPageClass) {
 		setMenuText(menuText);
 		setResponsePageClass(destinationPageClass);
 		setSubMenuItemList(new ArrayList<MenuItem>());
 		setDestinationType(DestinationType.WEB_PAGE_CLASS);
 	}
 
-	public MenuItem(String menuText,
-			Class<? extends WebPage> destinationWebPage,
-			List<MenuItem> subMenuItemList) throws InstantiationException,
-			IllegalAccessException {
+	public MenuItem(String menuText, Class<? extends WebPage> destinationWebPage, List<MenuItem> subMenuItemList)
+			throws InstantiationException, IllegalAccessException {
 		this(menuText, destinationWebPage.newInstance(), subMenuItemList);
 		setDestinationType(DestinationType.WEB_PAGE_CLASS);
 	}
 
-	public <T extends WebPage> MenuItem(String menuText, T destinationPage,
-			List<MenuItem> subMenuItemList) {
+	public <T extends WebPage> MenuItem(String menuText, T destinationPage, List<MenuItem> subMenuItemList) {
 		setMenuText(menuText);
 		setResponsePage(destinationPage);
 		setSubMenuItemList(subMenuItemList);
