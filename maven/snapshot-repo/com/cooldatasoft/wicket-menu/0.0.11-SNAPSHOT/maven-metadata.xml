@@ -29,8 +29,8 @@
       <snapshotVersion>
         <classifier>javadoc</classifier>
         <extension>jar</extension>
-        <value>0.0.11-20120626.220258-1</value>
-        <updated>20120626220258</updated>
+        <value>0.0.11-20120720.142332-2</value>
+        <updated>20120720142332</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
