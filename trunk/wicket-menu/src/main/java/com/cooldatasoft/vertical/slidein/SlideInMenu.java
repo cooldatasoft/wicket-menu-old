@@ -3,14 +3,16 @@ package com.cooldatasoft.vertical.slidein;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.wicket.core.util.string.JavaScriptUtils;
+import org.apache.wicket.markup.head.CssHeaderItem;
+import org.apache.wicket.markup.head.IHeaderResponse;
+import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.IHeaderContributor;
-import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 import org.apache.wicket.request.resource.ResourceReference;
-import org.apache.wicket.util.string.JavaScriptUtils;
 
 import com.cooldatasoft.common.DestinationType;
 import com.cooldatasoft.common.MenuItem;
@@ -71,9 +73,9 @@ public class SlideInMenu extends Panel implements IHeaderContributor {
 			}
 		}
 		response.getResponse().write(JavaScriptUtils.SCRIPT_CLOSE_TAG);
-
-		response.renderJavaScriptReference(MENU_JS);
-		response.renderCSSReference(MENU_CSS);
+		response.render(JavaScriptHeaderItem.forReference(MENU_JS));
+		response.render(CssHeaderItem.forReference(MENU_CSS));
+		
 	}
 
 	public List<MenuItem> getMenuItemList() {
