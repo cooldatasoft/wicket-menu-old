@@ -5,11 +5,9 @@
 	<groupId>com.cooldatasoft</groupId>
 	<artifactId>wicket-menu-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>1.5.7-SNAPSHOT</version>
+	<version>1.5.6-SNAPSHOT</version>
 	<name>Wicket Menu</name>
 	<description>Wicket Menu</description>
-
-
 
 	<properties>
 		<wicket.version>1.5.6</wicket.version>
