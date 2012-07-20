@@ -5,12 +5,12 @@
 	<groupId>com.cooldatasoft</groupId>
 	<artifactId>wicket-menu-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>1.5.0-SNAPSHOT</version>
+	<version>6.0.0-beta2-SNAPSHOT</version>
 	<name>Wicket Menu</name>
 	<description>Wicket Menu</description>
 
 	<properties>
-		<wicket.version>1.5.7</wicket.version>
+		<wicket.version>6.0.0-beta2</wicket.version>
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.6</java.version>
@@ -184,6 +184,8 @@
 	</build>
 
 
+	<dependencies>
+	</dependencies>
 	<reporting>
 		<plugins>
 			<plugin>

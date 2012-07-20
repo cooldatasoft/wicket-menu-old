@@ -2,8 +2,11 @@ package com.cooldatasoft.horizontal.dropdown.multiLevelCss;
 
 import java.util.List;
 
+import org.apache.wicket.core.util.string.JavaScriptUtils;
+import org.apache.wicket.markup.head.CssHeaderItem;
+import org.apache.wicket.markup.head.IHeaderResponse;
+import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.IHeaderContributor;
-import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
@@ -15,7 +18,6 @@ import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 import org.apache.wicket.request.resource.PackageResourceReference;
 import org.apache.wicket.request.resource.ResourceReference;
-import org.apache.wicket.util.string.JavaScriptUtils;
 
 import com.cooldatasoft.common.MenuItem;
 
@@ -50,9 +52,10 @@ public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 		response.getResponse().write(buffer.toString());
 		response.getResponse().write(JavaScriptUtils.SCRIPT_CLOSE_TAG);
 
-		response.renderJavaScriptReference(JQUERY_MIN_JAVASCRIPT);
-		response.renderJavaScriptReference(MENU_JAVASCRIPT);
-		response.renderCSSReference(MENU_CSS);
+		
+		response.render(JavaScriptHeaderItem.forReference(JQUERY_MIN_JAVASCRIPT));
+		response.render(JavaScriptHeaderItem.forReference(MENU_JAVASCRIPT));
+		response.render(CssHeaderItem.forReference(MENU_CSS));
 	}
 
 	public MultiLevelCssMenu(String id, List<MenuItem> menuItemList) {
