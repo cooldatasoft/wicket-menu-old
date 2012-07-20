@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.cooldatasoft</groupId>
+  <artifactId>wicket-menu-demo</artifactId>
+  <version>1.5.7-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20120720.154137</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20120720154137</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>war</extension>
+        <value>1.5.7-20120720.154137-1</value>
+        <updated>20120720154137</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.5.7-20120720.154137-1</value>
+        <updated>20120720154137</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
