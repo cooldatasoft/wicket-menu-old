@@ -1,40 +1,51 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<parent>
 		<artifactId>wicket-menu-parent</artifactId>
 		<groupId>com.cooldatasoft</groupId>
-		<version>6.0.0-beta2-SNAPSHOT</version>
+		<version>1.4.20</version>
 	</parent>
-	
 	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.cooldatasoft</groupId>
 	<artifactId>wicket-menu</artifactId>
+	<version>1.4.20</version>
 	<packaging>jar</packaging>
 	<name>Wicket Menu</name>
-	<description>Wicket-Menu</description>
+
+
+	<properties>
+	</properties>
+
 
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
-			<artifactId>wicket-core</artifactId>
-			<scope>provided</scope>
+			<artifactId>wicket</artifactId>
 		</dependency>
+		<!-- logging dependencies -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<scope>provided</scope>
 		</dependency>
+		<!-- Testing dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
+	<dependencyManagement>
+		<dependencies>
+			<!-- Logging dependencies -->
+			<!-- Testing dependencies -->
+		</dependencies>
+	</dependencyManagement>
+
+	<scm>
+		<developerConnection>Fatih Mehmet UCAR</developerConnection>
+		<url>https://wicket-menu.googlecode.com/svn/trunk/wicket-menu</url>
+	</scm>
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -45,16 +56,6 @@
 						<source>${java.compiler.version}</source>
 						<target>${java.compiler.version}</target>
 					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-source-plugin</artifactId>
-					<version>2.1.2</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>2.8.1</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
