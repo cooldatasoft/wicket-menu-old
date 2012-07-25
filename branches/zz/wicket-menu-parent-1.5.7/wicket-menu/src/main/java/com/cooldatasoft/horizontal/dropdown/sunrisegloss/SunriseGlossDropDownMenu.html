@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+<head>
+</head>
+
+<body>
+	<wicket:panel>
+		<div class="nav-container-outer">
+			<img wicket:id="bgLeft" class="float-left"/>
+		  	<img wicket:id="bgRight" class="float-right" />
+		  	<ul id="nav-container" class="nav-container" >
+				<li wicket:id="menuItem">
+		        	<a href="#" wicket:id="menuLink" ><span wicket:id="linkText">[PRIMARY MENU LINK TEXT]</span></a>
+		        	<span wicket:id="menuSeperator">[NOTHING -JUST MENU SEPERATOR]</span>
+		        	<ul style="width:150px;" wicket:id="subMenuListContainer">
+		        		<li wicket:id="subMenuItem">
+			        		<a href="#" wicket:id="subMenuLink" ><span wicket:id="subMenuLinkText">[SUBMENU LINK TEXT]</span></a>
+		        			<span wicket:id="subMenuSeperatorOrSecondaryTitle">[Seperator or submenu title]</span>
+		        		</li>
+				     </ul>
+		        </li>
+		        <!-- Add empty menu to the end -->	 
+				<li class="clear">&nbsp;</li>
+			 </ul>		   
+		</div>
+	</wicket:panel>
+</body>
+
+</html>
