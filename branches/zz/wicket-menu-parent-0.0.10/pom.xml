@@ -5,7 +5,7 @@
 	<groupId>com.cooldatasoft</groupId>
 	<artifactId>wicket-menu-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>0.0.10</version>
+	<version>0.0.11-SNAPSHOT</version>
 	<name>Wicket Menu Parent</name>
 
 
@@ -24,9 +24,9 @@
 
 
 	<scm>
-		<url>https://wicket-menu.googlecode.com/svn/tags/wicket-menu-parent-0.0.10</url>
-		<connection>scm:svn:https://wicket-menu.googlecode.com/svn/tags/wicket-menu-parent-0.0.10</connection>
-		<developerConnection>scm:svn:https://wicket-menu.googlecode.com/svn/tags/wicket-menu-parent-0.0.10</developerConnection>
+		<url>https://wicket-menu.googlecode.com/svn/branches/zz/wicket-menu-parent-0.0.10</url>
+		<connection>scm:svn:https://wicket-menu.googlecode.com/svn/branches/zz/wicket-menu-parent-0.0.10</connection>
+		<developerConnection>scm:svn:https://wicket-menu.googlecode.com/svn/branches/zz/wicket-menu-parent-0.0.10</developerConnection>
 	</scm>
 
 	<issueManagement>
