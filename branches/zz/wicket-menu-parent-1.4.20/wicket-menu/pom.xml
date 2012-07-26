@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<parent>
 		<artifactId>wicket-menu-parent</artifactId>
 		<groupId>com.cooldatasoft</groupId>
-		<version>1.4.20-SNAPSHOT</version>
+		<version>1.4.20</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>wicket-menu</artifactId>
@@ -41,9 +40,10 @@
 	</dependencyManagement>
 
 	<scm>
-		<developerConnection>Fatih Mehmet UCAR</developerConnection>
-		<url>https://wicket-menu.googlecode.com/svn/trunk/wicket-menu</url>
-	</scm>
+		<developerConnection>Fatih Mehmet UCAR/tags/wicket-menu-parent-1.4.20</developerConnection>
+		<url>https://wicket-menu.googlecode.com/svn/tags/wicket-menu-parent-1.4.20/wicket-menu</url>
+	  <connection>scm:svn:https://wicket-menu.googlecode.com/svn/tags/wicket-menu-parent-1.4.20/wicket-menu</connection>
+  </scm>
 	<build>
 		<pluginManagement>
 			<plugins>
