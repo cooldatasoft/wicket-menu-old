@@ -3,11 +3,8 @@ package com.cooldatasoft.horizontal.dropdown.chrome;
 import java.util.List;
 
 import org.apache.wicket.AttributeModifier;
-import org.apache.wicket.core.util.string.JavaScriptUtils;
-import org.apache.wicket.markup.head.CssHeaderItem;
-import org.apache.wicket.markup.head.IHeaderResponse;
-import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.IHeaderContributor;
+import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
@@ -20,67 +17,62 @@ import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 import org.apache.wicket.request.resource.PackageResourceReference;
 import org.apache.wicket.request.resource.ResourceReference;
+import org.apache.wicket.util.string.JavaScriptUtils;
 
+import com.cooldatasoft.common.DestinationType;
 import com.cooldatasoft.common.MenuItem;
-
 /**
  * 
  * @author Fatih Mehmet UCAR - fmucar@gmail.com
- * 
+ *
  */
 public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 
 	private static final long serialVersionUID = 1L;
 
 	private final static ResourceReference DOWN_GIF = new PackageResourceReference(ChromeDropDownMenu.class, "images/down.gif");
-	private static final ResourceReference MENU_JS = new JavaScriptResourceReference(ChromeDropDownMenu.class, "js/chrome.js");
-	private final static CssResourceReference MENU_CSS_THEME1 = new CssResourceReference(ChromeDropDownMenu.class,
-			"css/chrome1.css");
-	private final static CssResourceReference MENU_CSS_THEME2 = new CssResourceReference(ChromeDropDownMenu.class,
-			"css/chrome2.css");
-	private final static CssResourceReference MENU_CSS_THEME3 = new CssResourceReference(ChromeDropDownMenu.class,
-			"css/chrome3.css");
-	private final static CssResourceReference MENU_CSS_THEME4 = new CssResourceReference(ChromeDropDownMenu.class,
-			"css/chrome4.css");
-
+	private static final ResourceReference MENU_JS= new JavaScriptResourceReference(ChromeDropDownMenu.class, "js/chrome.js");
+	private final static CssResourceReference MENU_CSS_THEME1 = new CssResourceReference(ChromeDropDownMenu.class, "css/chrome1.css");
+	private final static CssResourceReference MENU_CSS_THEME2 = new CssResourceReference(ChromeDropDownMenu.class, "css/chrome2.css");
+	private final static CssResourceReference MENU_CSS_THEME3 = new CssResourceReference(ChromeDropDownMenu.class, "css/chrome3.css");
+	private final static CssResourceReference MENU_CSS_THEME4 = new CssResourceReference(ChromeDropDownMenu.class, "css/chrome4.css");
+	
 	public enum CSS {
 		THEME1, THEME2, THEME3, THEME4
 	};
-
+	
 	private int numberOfMenu;
 	private ResourceReference menuCssResourceReference;
-
+	
 	@Override
 	public void renderHead(IHeaderResponse response) {
 
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("var downGifRelativeLocation='<img src=\"");
 		buffer.append(RequestCycle.get().urlFor(DOWN_GIF, null));
-		buffer.append("\" border=\"0\" />'; ");
+		buffer.append("\" border=\"0\" />'; ");		
 
 		response.getResponse().write(JavaScriptUtils.SCRIPT_OPEN_TAG);
-		response.getResponse().write(buffer.toString());
-		response.getResponse().write(JavaScriptUtils.SCRIPT_CLOSE_TAG);
-
+        response.getResponse().write(buffer.toString());
+        response.getResponse().write(JavaScriptUtils.SCRIPT_CLOSE_TAG); 
+        
 		
-		response.render(JavaScriptHeaderItem.forReference(MENU_JS));
-		response.render(CssHeaderItem.forReference(menuCssResourceReference));
-	}
+		response.renderJavaScriptReference(MENU_JS);
+		response.renderCSSReference(menuCssResourceReference);
 
+	}
+	
 	private void processResponse(MenuItem menuItem) {
 		switch (menuItem.getDestinationType()) {
-		case EXTERNAL_LINK:
+		case DestinationType.EXTERNAL_LINK:
 			break;
-		case WEB_PAGE_CLASS:
+		case DestinationType.WEB_PAGE_CLASS:
 			setResponsePage(menuItem.getResponsePageClass());
 			break;
-		case WEB_PAGE_INSTANCE:
+		case DestinationType.WEB_PAGE_INSTANCE:
 			setResponsePage(menuItem.getResponsePage());
 			break;
-		case AJAX_TARGET:
-			// DO Nothing as ajax will execute
-			break;
-		case NONE:
+		case DestinationType.NONE:
 			break;
 		}
 	}
@@ -92,8 +84,7 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 	/**
 	 * http://www.dynamicdrive.com/dynamicindex1/chrome/index.htm
 	 * 
-	 * First element of each list is assumed to be the top menu Use ChromeMenu.CSS.THEME1-4 for
-	 * different css themes
+	 * First element of each list is assumed to be the top menu Use ChromeMenu.CSS.THEME1-4 for different css themes
 	 * 
 	 * @param id
 	 * @param menuListOfLinkList
@@ -109,7 +100,7 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 			menuCssResourceReference = MENU_CSS_THEME3;
 		} else if (cssTheme == CSS.THEME4) {
 			menuCssResourceReference = MENU_CSS_THEME4;
-		} else {
+		}else{
 			menuCssResourceReference = MENU_CSS_THEME1;
 		}
 

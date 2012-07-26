@@ -16,7 +16,6 @@ public class WicketMenuDemoApplication extends WebApplication {
 	protected void init() {
 		super.init();
 		getMarkupSettings().setStripWicketTags(true);
-		getDebugSettings().setAjaxDebugModeEnabled(true);
 	}
-
+	
 }
