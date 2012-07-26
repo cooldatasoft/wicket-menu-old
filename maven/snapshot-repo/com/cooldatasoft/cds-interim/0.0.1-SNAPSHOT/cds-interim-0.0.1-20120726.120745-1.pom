@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.cooldatasoft</groupId>
+	<artifactId>cds-interim</artifactId>
+	<packaging>pom</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Wicket Menu</name>
+	<description>Wicket Menu</description>
+
+
+	<scm>
+		<url>https://wicket-menu.googlecode.com/svn/branch/zz</url>
+		<connection>scm:svn:https://wicket-menu.googlecode.com/svn/branch/zz</connection>
+		<developerConnection>scm:svn:https://wicket-menu.googlecode.com/svn/branch/zz</developerConnection>
+	</scm>
+
+	<issueManagement>
+		<system>Google Code</system>
+		<url>http://code.google.com/p/wicket-menu/issues</url>
+	</issueManagement>
+
+
+	<developers>
+		<developer>
+			<id>fmucar</id>
+			<name>Fatih Mehmet UCAR</name>
+			<email>fmucar@cooldatasoft.com</email>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+
+	<distributionManagement>
+		<repository>
+			<id>wicket-menu-release</id>
+			<name>Maven Repository for wicket-menu release</name>
+			<url>svn:https://wicket-menu.googlecode.com/svn/maven/repo/</url>
+		</repository>
+		<snapshotRepository>
+			<id>wicket-menu-snapshot</id>
+			<name>Maven Repository forwicket-menu (snapshot)</name>
+			<url>svn:https://wicket-menu.googlecode.com/svn/maven/snapshot-repo</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
+
+
+	<repositories>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2/</url>
+		</repository>
+	</repositories>
+
+
+
+
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.jvnet.wagon-svn</groupId>
+				<artifactId>wagon-svn</artifactId>
+				<version>1.9</version>
+			</extension>
+		</extensions>
+		<!-- define compiler level for source -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>wicket-menu-parent-0.0.7</module>
+		<module>wicket-menu-parent-0.0.8</module>
+		<module>wicket-menu-parent-0.0.9</module>
+		<module>wicket-menu-parent-0.0.10</module>
+		<module>wicket-menu-parent-1.4.20</module>
+		<module>wicket-menu-parent-1.5.6</module>
+		<module>wicket-menu-parent-1.5.7</module>
+	</modules>
+</project>

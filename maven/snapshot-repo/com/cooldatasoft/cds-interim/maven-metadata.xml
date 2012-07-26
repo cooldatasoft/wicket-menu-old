@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.cooldatasoft</groupId>
+  <artifactId>cds-interim</artifactId>
+  <versioning>
+    <versions>
+      <version>0.0.1-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20120726120759</lastUpdated>
+  </versioning>
+</metadata>
