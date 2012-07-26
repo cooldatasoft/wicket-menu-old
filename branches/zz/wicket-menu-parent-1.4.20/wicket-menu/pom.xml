@@ -3,7 +3,7 @@
 	<parent>
 		<artifactId>wicket-menu-parent</artifactId>
 		<groupId>com.cooldatasoft</groupId>
-		<version>1.4.20</version>
+		<version>1.4.21-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>wicket-menu</artifactId>
@@ -40,9 +40,9 @@
 	</dependencyManagement>
 
 	<scm>
-		<developerConnection>Fatih Mehmet UCAR/tags/wicket-menu-parent-1.4.20</developerConnection>
-		<url>https://wicket-menu.googlecode.com/svn/tags/wicket-menu-parent-1.4.20/wicket-menu</url>
-	  <connection>scm:svn:https://wicket-menu.googlecode.com/svn/tags/wicket-menu-parent-1.4.20/wicket-menu</connection>
+		<developerConnection>Fatih Mehmet UCAR</developerConnection>
+		<url>https://wicket-menu.googlecode.com/svn/trunk/wicket-menu</url>
+	  <connection>scm:svn:https://wicket-menu.googlecode.com/svn/branches/zz/wicket-menu-parent-1.4.20/wicket-menu</connection>
   </scm>
 	<build>
 		<pluginManagement>
