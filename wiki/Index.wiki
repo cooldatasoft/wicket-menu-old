@@ -14,7 +14,7 @@ Only dependency is wicket itself so practically you dont need to add any other j
 
 For online demo go to;
 
-http://www.cooldatasoft.com/wicket-menu-demo/
+http://www.cooldatasoft.com/wicket-menu-demo-6.3.0/
 
 
 
