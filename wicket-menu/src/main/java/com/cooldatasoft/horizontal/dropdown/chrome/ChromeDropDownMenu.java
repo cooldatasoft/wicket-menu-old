@@ -3,11 +3,8 @@ package com.cooldatasoft.horizontal.dropdown.chrome;
 import java.util.List;
 
 import org.apache.wicket.AttributeModifier;
-import org.apache.wicket.core.util.string.JavaScriptUtils;
-import org.apache.wicket.markup.head.CssHeaderItem;
-import org.apache.wicket.markup.head.IHeaderResponse;
-import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.IHeaderContributor;
+import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
@@ -20,6 +17,7 @@ import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 import org.apache.wicket.request.resource.PackageResourceReference;
 import org.apache.wicket.request.resource.ResourceReference;
+import org.apache.wicket.util.string.JavaScriptUtils;
 
 import com.cooldatasoft.common.MenuItem;
 
@@ -62,9 +60,9 @@ public class ChromeDropDownMenu extends Panel implements IHeaderContributor {
 		response.getResponse().write(buffer.toString());
 		response.getResponse().write(JavaScriptUtils.SCRIPT_CLOSE_TAG);
 
-		
-		response.render(JavaScriptHeaderItem.forReference(MENU_JS));
-		response.render(CssHeaderItem.forReference(menuCssResourceReference));
+		response.renderJavaScriptReference(MENU_JS);
+		response.renderCSSReference(menuCssResourceReference);
+
 	}
 
 	private void processResponse(MenuItem menuItem) {

@@ -8,9 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;
-import org.apache.wicket.markup.head.CssHeaderItem;
-import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.IHeaderContributor;
+import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
@@ -47,7 +46,7 @@ public class SunriseGlossDropDownMenu extends Panel implements IHeaderContributo
 
 	@Override
 	public void renderHead(IHeaderResponse container) {
-		container.render(CssHeaderItem.forReference(CSS_PATH));
+		container.renderCSSReference(CSS_PATH);
 	}
 
 	public void processResponse(MenuItem menuItem) {
