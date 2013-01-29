@@ -24,7 +24,7 @@ http://www.cooldatasoft.com/wicket-menu-demo-6.3.0/
 <dependency>
   <groupId>com.cooldatasoft</groupId>
   <artifactId>wicket-menu</artifactId>
-  <version>6.3.0</version>
+  <version>6.5.0</version>
   <type>jar</type>
   <scope>compile</scope>
 </dependency>
