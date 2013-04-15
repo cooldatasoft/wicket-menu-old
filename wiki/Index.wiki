@@ -14,7 +14,7 @@ Only dependency is wicket itself so practically you dont need to add any other j
 
 For online demo go to;
 
-http://www.cooldatasoft.com/wicket-menu-demo-6.3.0/
+http://www.cooldatasoft.com/wicket-menu-demo-6.6.0/
 
 
 
@@ -24,7 +24,7 @@ http://www.cooldatasoft.com/wicket-menu-demo-6.3.0/
 <dependency>
   <groupId>com.cooldatasoft</groupId>
   <artifactId>wicket-menu</artifactId>
-  <version>6.5.0</version>
+  <version>6.6.0</version>
   <type>jar</type>
   <scope>compile</scope>
 </dependency>
