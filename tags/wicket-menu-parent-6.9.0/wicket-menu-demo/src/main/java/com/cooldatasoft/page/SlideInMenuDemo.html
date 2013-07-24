@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+	<head>
+		<title><wicket:message key="wicketmenu.version"/></title>
+		
+		  <style type="text/css">
+		    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+		  </style>
+  
+	</head>
+	<body>
+		<div wicket:id="slideInMenu"></div>
+		
+		<br/><br/>
+		
+		
+  <b>Java Code : </b>
+  <br/>
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#7f0055"><b>package&nbsp;</b></font><font color="#000000">com.cooldatasoft.page;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.util.ArrayList;</font><br />
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">java.util.List;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">com.cooldatasoft.app.BasePage;</font><br />
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">com.cooldatasoft.common.MenuItem;</font><br />
+<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">com.cooldatasoft.vertical.slidein.SlideInMenu;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">SlideInMenuDemo&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">BasePage</font><font color="#000000">{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">SlideInMenuDemo</font><font color="#000000">(){</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">List&lt;MenuItem&gt;&nbsp;primaryMenuList&nbsp;=&nbsp;buildMenu</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//add&nbsp;your&nbsp;menu&nbsp;to&nbsp;your&nbsp;wicket&nbsp;page</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">add</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">SlideInMenu</font><font color="#000000">(</font><font color="#2a00ff">&#34;slideInMenu&#34;</font><font color="#000000">,&nbsp;primaryMenuList</font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#000000">List&lt;MenuItem&gt;&nbsp;buildMenu</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//Create&nbsp;one&nbsp;seperator&nbsp;menu&nbsp;item</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">MenuItem&nbsp;seperatorMenuItem&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">MenuItem</font><font color="#000000">(</font><font color="#7f0055"><b>true</b></font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//Define&nbsp;Primary&nbsp;Menu&nbsp;items&nbsp;(menuText,destinationWebPage)&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">MenuItem&nbsp;primaryMenu1&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">MenuItem</font><font color="#000000">(</font><font color="#2a00ff">&#34;MENU&nbsp;1&#34;</font><font color="#000000">,&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Index</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">MenuItem&nbsp;primaryMenu2&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">MenuItem</font><font color="#000000">(</font><font color="#2a00ff">&#34;MeNu&nbsp;2&#34;</font><font color="#000000">,&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Index</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">MenuItem&nbsp;primaryMenu3&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">MenuItem</font><font color="#000000">(</font><font color="#2a00ff">&#34;Menu&nbsp;3&#34;</font><font color="#000000">,&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Index</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">MenuItem&nbsp;primaryMenu4&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">MenuItem</font><font color="#000000">(</font><font color="#2a00ff">&#34;MenU&nbsp;4&#34;</font><font color="#000000">,&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Index</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">MenuItem&nbsp;primaryMenu5&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">MenuItem</font><font color="#000000">(</font><font color="#2a00ff">&#34;menu&nbsp;5&#34;</font><font color="#000000">,&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Index</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//Create&nbsp;a&nbsp;List&nbsp;which&nbsp;contains&nbsp;the&nbsp;primary&nbsp;menu&nbsp;items&nbsp;in&nbsp;it.&nbsp;&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">List&lt;MenuItem&gt;&nbsp;primaryMenuList&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">ArrayList&lt;MenuItem&gt;</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">primaryMenuList.add</font><font color="#000000">(</font><font color="#000000">primaryMenu1</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">primaryMenuList.add</font><font color="#000000">(</font><font color="#000000">primaryMenu2</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">primaryMenuList.add</font><font color="#000000">(</font><font color="#000000">primaryMenu3</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">primaryMenuList.add</font><font color="#000000">(</font><font color="#000000">primaryMenu4</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">primaryMenuList.add</font><font color="#000000">(</font><font color="#000000">primaryMenu5</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">primaryMenuList;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#000000">}</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+</table>
+</div>
+		
+		
+		<br/>
+<pre>
+<b>HTML Markup : </b>
+
+&lt;div wicket:id=&quot;slideInMenu&quot;&gt;&lt;/div&gt;
+</pre>
+	</body>
+</html>
