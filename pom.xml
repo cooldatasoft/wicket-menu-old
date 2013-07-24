@@ -10,14 +10,14 @@
 	<description>Wicket Menu</description>
 
 	<properties>
-		<wicket.version>6.8.0</wicket.version>
+		<wicket.version>6.9.0</wicket.version>
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.6</java.version>
-		<slf4j.version>1.6.4</slf4j.version>
+		<slf4j.version>1.7.5</slf4j.version>
 		<junit.version>4.11</junit.version>
 		<maven.jar.includes>**/*.*</maven.jar.includes>
-		<lombok.version>0.11.6</lombok.version>
+		<lombok.version>0.12.0</lombok.version>
 	</properties>
 
 	<scm>
