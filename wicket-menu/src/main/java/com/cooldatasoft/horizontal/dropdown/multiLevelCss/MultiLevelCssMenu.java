@@ -18,6 +18,7 @@ import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 import org.apache.wicket.request.resource.PackageResourceReference;
 import org.apache.wicket.request.resource.ResourceReference;
+import org.apache.wicket.resource.DynamicJQueryResourceReference;
 
 import com.cooldatasoft.common.MenuItem;
 
@@ -51,9 +52,8 @@ public class MultiLevelCssMenu extends Panel implements IHeaderContributor {
 		response.getResponse().write(JavaScriptUtils.SCRIPT_OPEN_TAG);
 		response.getResponse().write(buffer.toString());
 		response.getResponse().write(JavaScriptUtils.SCRIPT_CLOSE_TAG);
-
 		
-		response.render(JavaScriptHeaderItem.forReference(JQUERY_MIN_JAVASCRIPT));
+		response.render(JavaScriptHeaderItem.forReference(DynamicJQueryResourceReference.get()));
 		response.render(JavaScriptHeaderItem.forReference(MENU_JAVASCRIPT));
 		response.render(CssHeaderItem.forReference(MENU_CSS));
 	}
