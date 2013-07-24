@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+ 
+<head>
+</head>
+
+<body>
+	<wicket:panel>
+	<div class="chromestyle" id="chromemenu">
+		<ul>
+			<li wicket:id="primaryMenuList">
+	        	<a href="#" wicket:id="menuLink" ><span wicket:id="linkText">[LINK TEXT]</span></a>
+	        </li>
+		</ul>
+	</div>
+	
+	<div wicket:id="submenuList">
+		<div wicket:id="submenuDiv" class="dropmenudiv">
+			<span wicket:id="submenuItem">
+				<a href="#" wicket:id="menuLink" ><span wicket:id="linkText">[LINK TEXT]</span></a>
+			</span>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+	cssdropdown.startchrome("chromemenu")
+	</script>
+</wicket:panel>
+</body>
+
+</html>
+
+
+
+
