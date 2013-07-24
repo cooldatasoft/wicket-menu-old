@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.cooldatasoft</groupId>
+  <artifactId>wicket-menu-parent</artifactId>
+  <version>6.8.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20130724.221817</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20130724221817</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>6.8.0-20130724.221817-1</value>
+        <updated>20130724221817</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
