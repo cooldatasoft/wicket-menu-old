@@ -10,33 +10,4 @@
 
 = Details =
 
-Only dependency is wicket itself so practically you dont need to add any other jar to your classpath.
-
-For online demo go to;
-
-http://www.cooldatasoft.com/wicket-menu-demo-6.9.0/
-
-
-
-==Any recommendation or wish is very welcome.==
-
-{{{
-<dependency>
-  <groupId>com.cooldatasoft</groupId>
-  <artifactId>wicket-menu</artifactId>
-  <version>6.9.0</version>
-  <type>jar</type>
-  <scope>compile</scope>
-</dependency>
-
-<repositories>
-  <repository>
-    <id>wicket-menu-release</id>
-    <url>http://wicket-menu.googlecode.com/svn/maven/repo</url>
-  </repository>
-  <repository>
-    <id>wicket-menu-snapshot</id>
-    <url>http://wicket-menu.googlecode.com/svn/maven/snapshot-repo</url>
-  </repository>
-</repositories>
-}}}
+Only dependency is wicket itself so practically you don't need to add any other jar to your classpath.
